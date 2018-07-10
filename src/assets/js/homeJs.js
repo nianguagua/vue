@@ -5,5 +5,5 @@ Vue.component('test',{
 			count:123
 		}
 	},
-	template:"<i>homeJs</i>"
+	template:"<i>homeJs hhh</i>"
 })
