@@ -1,0 +1,36 @@
+ .box{
+    background: #ddd;
+  }
+  /*-----top开始----------*/
+  #top{
+    height: 150px;
+    border: 1px solid pink;
+  }
+  #top .title{
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+  }
+  #top .nav{
+    margin-top: 50px;
+  }
+  .el-menu-item{
+    padding: 0 30px;
+  }
+  #top .top-nav{
+    margin-left: 100px;
+    background: transparent;
+  }
+  /*-----top结束----------*/
+
+  /*-----bottom开始----------*/
+  #bottom{
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    height: 60px;
+    width: 100%;
+    background: #999;
+
+  }
+  /*-----bottom结束----------*/

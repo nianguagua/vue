@@ -5,6 +5,8 @@ import Second from '@/components/Second'
 import Third from '@/components/Third'
 import Fourth from '@/components/Fourth'
 
+import BoyHome from '@/components/BoyHome'
+
 export default new VueRouter({
   routes: [
     {
@@ -26,6 +28,11 @@ export default new VueRouter({
       path: '/fourth',
       name: 'Fourth',
       component: Fourth
+    },
+    {
+      path: '/boy',
+      name: 'BoyHome',
+      component: BoyHome
     }
   ],
   mode:'history'

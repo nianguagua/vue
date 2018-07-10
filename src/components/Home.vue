@@ -1,11 +1,9 @@
 <template>
-      
   <div>
     <div id="top">
-    <!-- <router-link to="/about">about</router-link>  -->
       <el-row :gutter="10">
         <el-col :span="8">
-          <div class="box title">title</div>
+          <headnavLeft></headnavLeft>
         </el-col>
         <el-col :span="14">
           <div class="box nav">
@@ -20,7 +18,7 @@
           </div>  
         </el-col>
         <el-col :span="2">
-          <div class="box change-sex">2</div>
+          <headnavRight></headnavRight>
         </el-col>
       </el-row> 
     </div> 
@@ -114,7 +112,6 @@ export default {
   data () {
     return {
       activeIndex: 'home',
-      arr:["a","b","c","d"],
       currentShow:"home",
       home:{
         indroduce:"homeHHH",
@@ -136,7 +133,6 @@ export default {
   },
   mounted:function(){
     var _self = this;
-    _self.indroduce = _self.home.indroduce;
   },
   methods:{
     changeTab:function(key,keyPath){
@@ -152,30 +148,7 @@ export default {
     transition: all 0.1s ease-in;
   }*/
   /*---------动画-------------*/
-  .box{
-    background: #ddd;
-  }
-  /*-----top开始----------*/
-  #top{
-    height: 150px;
-    border: 1px solid pink;
-  }
-  #top .title{
-    height: 150px;
-    line-height: 150px;
-    text-align: center;
-  }
-  #top .nav{
-    margin-top: 50px;
-  }
-  .el-menu-item{
-    padding: 0 30px;
-  }
-  #top .top-nav{
-    margin-left: 100px;
-    background: transparent;
-  }
-  /*-----top结束----------*/
+
   /*-----center开始----------*/
   #center{
     height: 500px;
@@ -232,15 +205,4 @@ export default {
   }
 
   /*-----center结束----------*/
-  /*-----bottom开始----------*/
-  #bottom{
-    position: fixed;
-    left: 0;
-    bottom: 0px;
-    height: 60px;
-    width: 100%;
-    background: #999;
-
-  }
-  /*-----bottom结束----------*/
 </style>
