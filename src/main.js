@@ -3,10 +3,11 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'vue2-animate/dist/vue2-animate.min.css'
 import VueRouter from 'vue-router'
-import App from './App'
 import router from './router'
-import homeJs from './assets/js/homeJs.js'
+import './assets/js/homeJs.js'
+import App from './App'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
