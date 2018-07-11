@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/components/Home'
-import Second from '@/components/Second'
-import Third from '@/components/Third'
-import Fourth from '@/components/Fourth'
+import Home from '@/components/girlComponents/Home'
+import Second from '@/components/girlComponents/Second'
+import Third from '@/components/girlComponents/Third'
+import Fourth from '@/components/girlComponents/Fourth'
 
-import BoyHome from '@/components/BoyHome'
+import BoyHome from '@/components/boyComponents/BoyHome'
+
+import AdminHome from '@/components/adminComponents/AdminHome'
 
 export default new VueRouter({
   routes: [
@@ -33,6 +35,11 @@ export default new VueRouter({
       path: '/boy',
       name: 'BoyHome',
       component: BoyHome
+    },
+    {
+      path: '/admin',
+      name: 'AdminHome',
+      component: AdminHome
     }
   ],
   mode:'history'

@@ -142,7 +142,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
   /*---------动画-------------*/
  /* .slide-enter-active , .slide-leave-active{   
     transition: all 0.1s ease-in;
