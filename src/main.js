@@ -35,8 +35,8 @@ router.beforeEach((to, from, next) => {
 		next();
 	}
 })
-if (window.localStorage.getItem('token')) {
-    store.commit('login', window.localStorage.getItem('token'))
+if (window.sessionStorage.getItem('token')) {
+    store.commit('login', window.sessionStorage.getItem('user'))
 }
 /* eslint-disable no-new */
 new Vue({

@@ -4,7 +4,7 @@
      <el-row :gutter="10">
         <el-col :span="12">12</el-col>
         <el-col :span="12">
-          <i class="el-icon-menu" style="float:right"></i>
+          <i class="el-icon-menu" style="float:right" @click="logout"></i>
         </el-col>
      </el-row>
    </div>
@@ -84,6 +84,10 @@ export default {
     changeTab:function(val){
       var _self = this;
       _self.currentShow = val;
+    },
+    logout:function(){
+      this.$store.commit('logout','');
+      this.$router.push({path: '/login'})
     }
   }
 }
