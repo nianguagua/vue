@@ -9,6 +9,7 @@ import BoyHome from '@/components/boyComponents/BoyHome'
 
 import AdminHome from '@/components/adminComponents/AdminHome'
 
+import Login from '@/components/Login'
 export default new VueRouter({
   routes: [
     {
@@ -39,8 +40,18 @@ export default new VueRouter({
     {
       path: '/admin',
       name: 'AdminHome',
+      meta:{
+        requireAuth: true
+      },
       component: AdminHome
+    },{
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
-  ],
-  mode:'history'
+  ]
+  // ,
+  // mode:'history'
+  // 页面刷新时，重新赋值token
+  
 })

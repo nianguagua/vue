@@ -1,7 +1,12 @@
 <template>
  <div>
    <div id="top">
-     
+     <el-row :gutter="10">
+        <el-col :span="12">12</el-col>
+        <el-col :span="12">
+          <i class="el-icon-menu" style="float:right"></i>
+        </el-col>
+     </el-row>
    </div>
    <div id="center">
       <el-row :gutter="10">
@@ -72,7 +77,6 @@ export default {
   name: 'AdminHome',
   data () {
     return {
-      msg: 'AdminHome',
       currentShow:'boyHome'
     }
   },
