@@ -56,7 +56,7 @@
             <div id="home-content" v-if="currentShow == 'home'">
               home
               <div class="next-box">
-                <router-link to="/">
+                <router-link to="/first">
                   <div class="box">
                     <span class="go">Go</span>
                   </div>  

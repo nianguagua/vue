@@ -47,14 +47,29 @@
         </el-col>
         <el-col :span="16">
           <div class="box content">
-            <div class="home boysecond-content" v-if="currentShow == 'home'">
+            <div class="home boyhome-content" v-if="currentShow == 'home'">
               home
+              <router-link to="/boyfirst">
+                <div class="go go-first">
+                  Go
+                </div>
+              </router-link>
             </div>
             <div class="second boysecond-content" v-if="currentShow == 'second'">
               second
+              <router-link to="/boysecond">
+                <div class="go go-second">
+                  Go
+                </div>
+              </router-link>
             </div>
-            <div class="third boysecond-content" v-if="currentShow == 'third'">
+            <div class="third boythird-content" v-if="currentShow == 'third'">
               third
+              <router-link to="/boythird">
+                <div class="go go-third">
+                  Go
+                </div>
+              </router-link>
             </div>
           </div>
         </el-col>
@@ -104,5 +119,20 @@ export default {
     margin-left: -50px;
     padding: 10px;
     text-align: center;
+  }
+  #center .go{
+    position: absolute;
+    right: -50px;
+    top: 360px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50px;
+    background: #666;
+    box-shadow: 3px 3px #333;
+  }
+  .home,.second,.third{
+    position: relative;
   }
 </style>
