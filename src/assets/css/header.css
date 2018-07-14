@@ -1,21 +1,42 @@
  .box{
-    background: #ddd;
+    /*background: #ddd;*/
   }
   /*-----top开始----------*/
   #top{
     height: 150px;
-    border: 1px solid pink;
+    /*border: 1px solid pink;*/
   }
   #top .title{
     height: 150px;
     line-height: 150px;
     text-align: center;
+    background: url('../image/title.png') no-repeat;
+    background-size: 80% 80%;
   }
   #top .nav{
     margin-top: 50px;
   }
-  .el-menu-item{
+  .el-menu--horizontal{
+    border: none;
+  }
+  .el-menu--horizontal>.el-menu-item{
+    color: #fff;
+    font-size: larger;
     padding: 0 30px;
+    text-shadow: 1px 1px #000;
+  }
+  .el-menu--horizontal>.el-menu-item.is-active{
+    color: #409EFF;
+  }
+ .el-menu-item:hover{
+    color: #409EFF;
+    background:none;
+ }
+ .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover{
+    color: #409EFF;
+ }
+  .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, .el-menu--horizontal>.el-submenu .el-submenu__title:hover{
+    background: none;
   }
   #top .top-nav{
     margin-left: 100px;

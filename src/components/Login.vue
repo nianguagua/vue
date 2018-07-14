@@ -47,6 +47,13 @@ export default {
 	            path: redirect
 	          })
  			}
+      // this.$ajax.get('/apis/hello/68')
+      // .then(function(res){
+      //   console.log(res);
+      // })
+      // .catch(function(err){
+      //   console.log(err);
+      // })
     }
   }
 }

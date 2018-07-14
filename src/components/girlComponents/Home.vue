@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="content">
     <div id="top">
       <el-row :gutter="10">
         <el-col :span="8">
@@ -9,10 +9,10 @@
           <div class="box nav">
             <template>
               <el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">
-                <el-menu-item index="home">A</el-menu-item>
-                <el-menu-item index="second">B</el-menu-item>
-                <el-menu-item index="third">C</el-menu-item>
-                <el-menu-item index="fourth">D</el-menu-item>
+                <el-menu-item index="home">Home</el-menu-item>
+                <el-menu-item index="second">Second</el-menu-item>
+                <el-menu-item index="third">Third</el-menu-item>
+                <el-menu-item index="fourth">Fourth</el-menu-item>
               </el-menu>
             </template>
           </div>  
@@ -148,16 +148,20 @@ export default {
     transition: all 0.1s ease-in;
   }*/
   /*---------动画-------------*/
-
+  #content{
+    background: url('../../assets/image/girlHomeBg.jpg');
+    background-size: cover;
+  }
   /*-----center开始----------*/
   #center{
     height: 500px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
+    padding-top: 10px;
     border: 1px solid #ccc;
   }
   #center .indroduce{
     height: 500px;
-    background: #ddd;
+   /* background: #ddd;*/
     position: relative;
   }
   #home-indroduce,#second-indroduce,#third-indroduce,#fourth-indroduce{
@@ -174,20 +178,20 @@ export default {
     /*background: #999;*/
   }
   #home-content,#second-content,#third-content,#fourth-content{
-    width: 600px;
+    width: 800px;
     height: 500px;
     background: #999;
   }
   .next-box{
     position: relative;
     top:380px;
-    left: 600px;
+    left: 800px;
     /*z-index: -1;*/
     width: 40px;
     height: 70px;
     padding-top:10px;
     text-align: center;
-    /*background: #666;*/
+   /* background: #666;*/
     overflow: hidden;
   }
   .next-box .box{
@@ -196,6 +200,7 @@ export default {
     margin-left: -25px;
     transform: rotate(45deg);
     box-shadow: 5px 5px #000;
+    background: #ccc;
   }
   .next-box span.go{
     float: right;
