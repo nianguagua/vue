@@ -25,13 +25,17 @@
     <div id="center">
       <el-row>
         <el-col :span="2">
-          <div class="box">2</div>
+          <div class="box">&nbsp;</div>
         </el-col>
         <el-col :span="6">
           <div class="box indroduce">
             <transition name="fadeLeft">
               <div id="home-indroduce" v-if="currentShow == 'home'">
-                <i>it is {{home.indroduce}}</i>
+                <b>这里是介绍哦:</b>
+                <p>
+                  这里是漫画和插画的工作站哦~css图片居中分css图片水平居中和垂直居中两种情况，有时候还需要图片同时水平垂直居中，下面分几种居中情况分别介绍
+                </p>
+                <img class="tip" src="../../../static/image/tip.jpg" alt="">
               </div>
             </transition>
             <transition name="fadeLeft">
@@ -54,7 +58,40 @@
         <el-col :span="14">
           <div class="box content">
             <div id="home-content" v-if="currentShow == 'home'">
-              home
+              <el-row>
+                <el-col :span="12">
+                  <div class="photo">
+                    <h2>相簿</h2>
+                    <div class="photo-box">
+                      <span class="photo1">
+                        <img src="../../../static/image/photo1.jpg" alt="">
+                      </span>
+                      <span class="photo2">
+                        <img src="../../../static/image/photo2.jpg" alt="">
+                      </span>
+                      <span class="photo3">
+                        <img src="../../../static/image/photo3.jpg" alt="">
+                      </span>
+                    </div>
+                  </div>
+                </el-col>
+                <el-col :span="12">
+                  <div class="comic">
+                    <h2>COMIC</h2>
+                    <div class="comic-box">
+                      <span class="comic1">
+                        <img src="../../../static/image/photo3.jpg" alt="">
+                      </span>
+                      <span class="comic2">
+                        <img src="../../../static/image/photo2.jpg" alt="">
+                      </span>
+                      <span class="comic3">
+                        <img src="../../../static/image/photo1.jpg" alt="">
+                      </span>
+                    </div>
+                  </div>
+                </el-col>
+              </el-row>
               <div class="next-box">
                 <router-link to="/first">
                   <div class="box">
@@ -65,6 +102,7 @@
             </div>
             <div id="second-content" v-if="currentShow == 'second'">
               second
+              <img src="../../../static/image/girl.jpg" alt="" />
               <div class="next-box">
                 <router-link to="/second">
                   <div class="box">
@@ -96,7 +134,7 @@
           </div>
         </el-col>
         <el-col :span="2">
-          
+          &nbsp;
         </el-col>
       </el-row>
     </div>
@@ -149,42 +187,126 @@ export default {
   }*/
   /*---------动画-------------*/
   #content{
-    background: url('../../assets/image/girlHomeBg.jpg');
+    height: 100%;
+    background: url('../../../static/image/girlHomeBg.jpg');
     background-size: cover;
+  }
+  img.tip{
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-right: 10px;
   }
   /*-----center开始----------*/
   #center{
-    height: 500px;
+    height: 520px;
     margin-bottom: 60px;
     padding-top: 10px;
-    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
   }
   #center .indroduce{
-    height: 500px;
+    height: 520px;
    /* background: #ddd;*/
     position: relative;
   }
   #home-indroduce,#second-indroduce,#third-indroduce,#fourth-indroduce{
     width: 300px;
     height: 300px;
-    background: #ccc;
+    background: #37d9b5;
     position: absolute;
     top: 15px;
     right: -20px;
-    box-shadow: 5px 5px #666;
+    box-shadow: 5px 5px #000;
   }
   #center .content{
-    height: 500px;
+    height: 520px;
     /*background: #999;*/
   }
   #home-content,#second-content,#third-content,#fourth-content{
     width: 800px;
-    height: 500px;
-    background: #999;
+    height: 520px;
+    background: #fff;
   }
+  /*------home-----*/
+  #home-indroduce p{
+    color: #236355;
+    text-indent: 2em;
+    padding: 0 5px;
+    line-height: 30px;
+  }
+  #home-content{
+    background: url('../../../static/image/girlHomeBg2.jpg');
+    background-size: cover;
+  }
+  #home-content .photo-box,.comic-box{
+    position: relative;
+    text-align: center;
+  }
+  #home-content .photo-box img,.comic-box img{
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    vertical-align: middle;
+  }
+  #home-content .photo,.comic{
+    /*border: 1px solid red;*/
+  }
+  #home-content .el-row{
+    position: static;
+  }
+  #home-content h2{
+    color: #37d9b5;
+    text-align: center;
+    text-shadow: 1px 1px #000;
+  }
+  #home-content .photo1,.photo2,.photo3,.comic1,.comic2,.comic3{
+    display: block;
+    width: 240px;
+    height: 300px;
+    line-height: 300px;
+    left: 80px;
+    top: 50px;
+    position: absolute;
+    border: 1px solid #236355;
+  }
+  #home-content .photo1,.comic1{
+    background: #999;
+    transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    z-index: 20;
+  }
+  #home-content .photo1:hover,.comic1:hover{
+    z-index: 100;
+    box-shadow: 6px 6px #000;
+  }
+  #home-content .photo2,.comic2{
+    background: #666;
+    transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    z-index: 40;
+  }
+  #home-content .photo2:hover,.comic2:hover{
+    z-index: 100;
+    box-shadow: 6px 6px #000;
+  }
+  #home-content .photo3,.comic3{
+    background: #333;
+    transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    z-index: 60;
+  }
+  #home-content .photo3:hover,.comic3:hover{
+    z-index: 100;
+    box-shadow: 6px 6px #000;
+  }
+  /*------home end-----*/
   .next-box{
     position: relative;
-    top:380px;
+    top:345px;
     left: 800px;
     /*z-index: -1;*/
     width: 40px;
@@ -200,9 +322,10 @@ export default {
     margin-left: -25px;
     transform: rotate(45deg);
     box-shadow: 5px 5px #000;
-    background: #ccc;
+    background: #37d9b5;
   }
   .next-box span.go{
+    color: #000;
     float: right;
     margin-right: 8px;
     margin-top: 5px;

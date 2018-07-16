@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/components/girlComponents/Home'
-import First from '@/components/girlComponents/First'
-import Second from '@/components/girlComponents/Second'
-import Third from '@/components/girlComponents/Third'
-import Fourth from '@/components/girlComponents/Fourth'
+import Home from '@/views/girlComponents/Home'
+import First from '@/views/girlComponents/First'
+import Second from '@/views/girlComponents/Second'
+import Third from '@/views/girlComponents/Third'
+import Fourth from '@/views/girlComponents/Fourth'
 
-import BoyHome from '@/components/boyComponents/BoyHome'
-import BoyFirst from '@/components/boyComponents/BoyFirst'
-import BoySecond from '@/components/boyComponents/BoySecond'
-import BoyThird from '@/components/boyComponents/BoyThird'
+import BoyHome from '@/views/boyComponents/BoyHome'
+import BoyFirst from '@/views/boyComponents/BoyFirst'
+import BoySecond from '@/views/boyComponents/BoySecond'
+import BoyThird from '@/views/boyComponents/BoyThird'
 
-import AdminHome from '@/components/adminComponents/AdminHome'
+import AdminHome from '@/views/adminComponents/AdminHome'
 
 import Login from '@/components/Login'
 export default new VueRouter({
