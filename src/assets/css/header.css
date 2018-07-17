@@ -17,12 +17,23 @@
     margin-top: 50px;
   }
   #top .change-sex {
-    background: #fff;
+    /* background: #fff; */
   }
   #top .change-sex img{
-    width: 50px;
-    height: 50px;
-    border: 1px solid red;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 2px solid #000;
+    /* border: 1px solid red; */
+  }
+  #top .change-sex img.boy{
+    margin-right: 5px;
+  }
+  #top .change-sex img.girl{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
   }
   .el-menu--horizontal{
     border: none;
