@@ -10,7 +10,8 @@ export default {
 }
 </script>
 <style>
-    body{
-        margin: 0;
+    html,body,#app{
+      margin: 0;
+      height: 100%;
     }
 </style>
