@@ -1,7 +1,76 @@
 <template>
-  <div>
-    <h1>{{ msg }}</h1> 
-    <router-link to="/">首页</router-link>
+  <div id="content">
+    <div id="top">
+      <el-row :gutter="10">
+        <el-col :span="6">
+          <headnavLeft></headnavLeft>
+        </el-col>
+        <el-col :span="14">
+          <div class="box nav">
+            <template>
+              <el-menu :default-active="activeIndex" class="top-nav" mode="horizontal">
+                <el-menu-item index="home">
+                  <router-link to="/">Home</router-link>
+                </el-menu-item>
+                <el-menu-item index="first">
+                  <router-link to="/first">First</router-link>
+                </el-menu-item>
+                <el-menu-item index="second">
+                  <router-link to="/second">Second</router-link>
+                </el-menu-item>
+                <el-menu-item index="third">
+                  <router-link to="/third">Third</router-link>
+                </el-menu-item>
+                <el-menu-item index="fourth">
+                  <router-link to="/fourth">Fourth</router-link>
+                </el-menu-item>
+              </el-menu>
+            </template>
+          </div>  
+        </el-col>
+        <el-col :span="4">
+          <headnavRight></headnavRight>
+        </el-col>
+      </el-row> 
+    </div> 
+    <div id="center">
+      <el-row>
+        <el-col :span="2">
+          <div class="box">&nbsp;</div>
+        </el-col>
+        <el-col :span="4" class="left">
+          <div class="tab-name">
+            
+          </div>
+          <div class="menu">
+            <el-menu default-active="app">
+              <el-menu-item index="app" @click="changeTab('app')">
+                  <i class="el-icon-document"></i>
+                  <span slot="title">APP</span>
+              </el-menu-item>
+              <el-menu-item index="demo" @click="changeTab('demo')">
+                  <i class="el-icon-location"></i>
+                  <span slot="title">DEMO</span>
+              </el-menu-item>
+            </el-menu>
+          </div>
+        </el-col>
+        <el-col :span="16" class="right">
+          <div class="app" v-if="currentShow == 'app'">
+            app
+          </div>
+          <div class="demo" v-if="currentShow == 'demo'">
+            demo
+          </div>
+        </el-col>
+        <el-col :span="2">
+          &nbsp;
+        </el-col>
+      </el-row>
+    </div>
+    <div id="bottom">
+      
+    </div>
   </div>
 </template>
 <script>
@@ -9,8 +78,40 @@ export default {
   name: 'Third',
   data () {
     return {
-      msg: 'Third'
+      activeIndex: 'third',
+      currentShow: "photo"
+    }
+  },
+  methods:{
+    changeTab:function(type){
+      var _self = this;
+      _self.currentShow = type;
     }
   }
 }
 </script>
+<style scoped>
+  #center{
+    margin-bottom: 60px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+  }
+  #center .left{
+    background: #ccc;
+  }
+  #center .right{
+    padding: 10px;
+    max-height: 530px;
+    background: #999;
+    overflow-y: scroll;
+  }
+  .left .tab-name{
+    height: 100px;
+    background: #777;
+  }
+  .comic-box{
+    height: 250px;
+    background: #ccc;
+    margin-bottom: 10px;
+  }
+</style>

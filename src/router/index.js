@@ -40,6 +40,9 @@ export default new VueRouter({
     {
       path: '/fourth',
       name: 'Fourth',
+      meta:{
+        requireAuth: true
+      },
       component: Fourth
     },
     {

@@ -76,11 +76,23 @@
           </el-menu>
         </el-col>
         <el-col :span="16" class="right">
-          <div class="vueFirst" v-if="">
-            1
+          <div class="vueFirst" v-if="currentShow == 'vueFirst'">
+            vueFirst
           </div>
-          <div class="comic">
-            2
+          <div class="vueSecond"  v-if="currentShow == 'vueSecond'">
+            vueSecond
+          </div>
+          <div class="elementFirst" v-if="currentShow == 'elementFirst'">
+            elementFirst
+          </div>
+          <div class="elementSecond"  v-if="currentShow == 'elementSecond'">
+            elementSecond
+          </div>
+          <div class="htmlFirst" v-if="currentShow == 'htmlFirst'">
+            htmlFirst
+          </div>
+          <div class="htmlSecond"  v-if="currentShow == 'htmlSecond'">
+            htmlSecond
           </div>
         </el-col>
         <el-col :span="2">
@@ -99,7 +111,7 @@ export default {
   data () {
     return {
       activeIndex: 'second',
-      currentShow: 'vue'
+      currentShow: 'vueFirst'
     }
   },
   methods:{
