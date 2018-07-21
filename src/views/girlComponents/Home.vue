@@ -123,9 +123,9 @@
 						</div>
 						<div id="fourth-content" v-if="currentShow == 'fourth'">
 							fourth
-							<div class="next-box">
-								<router-link to="/fourth">
-									<div class="box">
+							<div class="next-box"> 
+								<router-link to="#">
+									<div class="box" @click="goFourth">
 										<span class="go">Go</span>
 									</div>  
 								</router-link>
@@ -141,6 +141,7 @@
 		<div id="bottom">
 			
 		</div>
+		<codeDialog></codeDialog>
 	</div>
 </template>
 
@@ -176,6 +177,17 @@ export default {
 		changeTab:function(key,keyPath){
 			var _self = this;
 			_self.currentShow = key;
+		},
+		goFourth:function(){
+	  		if(this.$store.state.code === ''){
+	  			// alert("请输入邀请码");
+	  			this.$children[2].openDialog = true;
+	  			// this.$store.dialog = true;
+	  			// store.commit('showDialog', true);
+	  		}else{
+	  			this.$router.push({path:'/fourth'});
+	  		}
+	  		//this.$store.state.code = "123";
 		}
 	}
 }

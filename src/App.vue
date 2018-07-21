@@ -13,5 +13,6 @@ export default {
     html,body,#app{
       margin: 0;
       height: 100%;
+      overflow-x: hidden;
     }
 </style>

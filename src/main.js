@@ -32,7 +32,19 @@ router.beforeEach((to, from, next) => {
 			})
 		}
 	}else{
-		next();
+		if(to.meta.requireCode){//需要邀请码验证
+			if(store.state.code === ""){
+				next({
+					path:'/alarm',
+					query:{redirect: to.fullPath}
+				})
+			}else{
+				next();
+			}
+			
+		}else{
+			next();
+		}
 	}
 })
 if (window.sessionStorage.getItem('token')) {

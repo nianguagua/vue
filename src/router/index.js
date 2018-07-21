@@ -15,6 +15,7 @@ import BoyThird from '@/views/boyComponents/BoyThird'
 import AdminHome from '@/views/adminComponents/AdminHome'
 
 import Login from '@/components/Login'
+import Alarm from '@/components/Alarm'
 export default new VueRouter({
   routes: [
     {
@@ -41,7 +42,7 @@ export default new VueRouter({
       path: '/fourth',
       name: 'Fourth',
       meta:{
-        requireAuth: true
+        requireCode: true
       },
       component: Fourth
     },
@@ -76,6 +77,10 @@ export default new VueRouter({
       path: '/login',
       name: 'Login',
       component: Login
+    },{
+      path: '/alarm',
+      name: 'Alarm',
+      component: Alarm
     }
   ]
   // ,

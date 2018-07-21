@@ -8,23 +8,7 @@
         <el-col :span="14">
           <div class="box nav">
             <template>
-              <el-menu :default-active="activeIndex" class="top-nav" mode="horizontal">
-                <el-menu-item index="home">
-                  <router-link to="/">Home</router-link>
-                </el-menu-item>
-                <el-menu-item index="first">
-                  <router-link to="/first">First</router-link>
-                </el-menu-item>
-                <el-menu-item index="second">
-                  <router-link to="/second">Second</router-link>
-                </el-menu-item>
-                <el-menu-item index="third">
-                  <router-link to="/third">Third</router-link>
-                </el-menu-item>
-                <el-menu-item index="fourth">
-                  <router-link to="/fourth">Fourth</router-link>
-                </el-menu-item>
-              </el-menu>
+              <headnavCenter :activeIndex="activeIndex"></headnavCenter>
             </template>
           </div>  
         </el-col>
@@ -138,6 +122,7 @@
     <div id="bottom">
       
     </div>
+    <!-- <codeDialog></codeDialog> -->
   </div>
 </template>
 <script>

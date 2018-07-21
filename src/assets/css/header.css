@@ -2,7 +2,7 @@
     /*background: #ddd;*/
   }
   ::-webkit-scrollbar{
-      width:6px;
+      width:2px;
       box-shadow:inset 3px 10px 8px #303743;
       border-radius:8px;
   }
