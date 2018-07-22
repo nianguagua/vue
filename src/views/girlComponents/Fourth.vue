@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h1>{{ msg }}</h1> 
-    <router-link to="/">首页</router-link>
+  <div id="content">
+    <div id="top">
+      top
+    </div> 
+    <div id="bottom">
+      bottom
+    </div>
   </div>
 </template>
 <script>

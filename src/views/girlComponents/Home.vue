@@ -123,9 +123,9 @@
 						</div>
 						<div id="fourth-content" v-if="currentShow == 'fourth'">
 							fourth
-							<div class="next-box"> 
+							<div class="next-box" @click="goFourth"> 
 								<router-link to="#">
-									<div class="box" @click="goFourth">
+									<div class="box">
 										<span class="go">Go</span>
 									</div>  
 								</router-link>
@@ -146,6 +146,7 @@
 </template>
 
 <script>
+import Bus from '../../assets/js/eventBus'
 export default {
 	name: 'Home',
 	data () {
@@ -179,13 +180,14 @@ export default {
 			_self.currentShow = key;
 		},
 		goFourth:function(){
+			var _self = this;
 	  		if(this.$store.state.code === ''){
 	  			// alert("请输入邀请码");
-	  			this.$children[2].openDialog = true;
+	  			Bus.$emit("transCode",true);
 	  			// this.$store.dialog = true;
 	  			// store.commit('showDialog', true);
 	  		}else{
-	  			this.$router.push({path:'/fourth'});
+	  			_self.$router.push({path:'/fourth'});
 	  		}
 	  		//this.$store.state.code = "123";
 		}

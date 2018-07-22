@@ -12,7 +12,9 @@ export default {
 <style>
     html,body,#app{
       margin: 0;
+      padding: 0;
       height: 100%;
-      overflow-x: hidden;
+      width: 100%;
+      border: none;
     }
 </style>

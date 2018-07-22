@@ -55,7 +55,7 @@
     <div id="bottom">
       
     </div>
-    <!-- <codeDialog></codeDialog> -->
+    <codeDialog></codeDialog>
   </div>
 </template>
 <script>

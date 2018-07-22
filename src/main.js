@@ -50,6 +50,9 @@ router.beforeEach((to, from, next) => {
 if (window.sessionStorage.getItem('token')) {
     store.commit('login', window.sessionStorage.getItem('user'))
 }
+if (window.sessionStorage.getItem('code')) {
+    store.commit('freshCode', window.sessionStorage.getItem('code'))
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

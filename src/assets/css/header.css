@@ -1,23 +1,11 @@
  .box{
     /*background: #ddd;*/
   }
-  ::-webkit-scrollbar{
-      width:2px;
-      box-shadow:inset 3px 10px 8px #303743;
-      border-radius:8px;
-  }
-  ::-webkit-scrollbar-button{
-    display:none;
-  }
-  ::-webkit-scrollbar-track{
-    height:100%;
-  }
-  ::-webkit-scrollbar-thumb{
-    border-radius:8px;
-    background-color:#43689C;
-  }
   a{
     text-decoration: none;
+  }
+  #content{
+    min-width: 1250px;
   }
   /*-----top开始----------*/
   #top{

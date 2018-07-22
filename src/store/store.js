@@ -5,8 +5,7 @@ export default new Vuex.Store({
 	state:{
 		user:"",
 		token:false,
-		code:"",
-		dialog: false//邀请码验证弹出框  用于组件之间的通信
+		code:""
 	},
 	mutations:{
 		login(state,user){
@@ -21,8 +20,9 @@ export default new Vuex.Store({
 			sessionStorage.removeItem('token');
 			sessionStorage.removeItem('user');
 		},
-		showDialog(state,user){
-			state.dialog = user;
+		freshCode(state,code){
+			state.code = code;
+			sessionStorage.code = code;
 		}
 	}
 })
