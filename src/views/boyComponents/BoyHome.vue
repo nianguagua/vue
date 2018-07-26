@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div id="top">
+  <el-container>
+    <el-header style="height:120px;">
       <el-row :gutter="10">
         <el-col :span="8">
           <headnavLeft></headnavLeft>
         </el-col>
-        <el-col :span="14">
+        <el-col :span="12">
           <div class="box nav">
             <template>
               <el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">
@@ -16,16 +16,14 @@
             </template>
           </div>  
         </el-col>
-        <el-col :span="2">
-          <headnavRight></headnavRight>
+        <el-col :span="4">
+          <headnavBoyRight></headnavBoyRight>
         </el-col>
       </el-row> 
-    </div> 
-    <div id="center">
+    </el-header> 
+    <el-main>
       <el-row :gutter="10">
-        <el-col :span="2">
-          2
-        </el-col>
+        <el-col :span="2">&nbsp;</el-col>
         <el-col :span="4">
           <div class="box indroduce">
             <transition name="rotate">
@@ -73,15 +71,13 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="2">
-          2
-        </el-col>
+        <el-col :span="2">&nbsp;</el-col>
       </el-row>
-    </div>
-    <div id="bottom">
+    </el-main>
+    <el-footer style="height:20px">
       
-    </div>
-  </div>
+    </el-footer>
+  </el-container>
 </template>
 <script>
 export default {
@@ -102,15 +98,15 @@ export default {
 }
 </script>
 <style scoped>
-  #center .indroduce,#center .content{
+  .indroduce,.content{
     height: 500px;
     background: #ccc;
     padding-top: 10px;
   }
-  #center .indroduce{
+  .indroduce{
     position: relative;
   }
-  #center .boy-rotate{
+  .boy-rotate{
     position: absolute;
     width: 160px;
     height: 160px;
@@ -120,7 +116,7 @@ export default {
     padding: 10px;
     text-align: center;
   }
-  #center .go{
+  .go{
     position: absolute;
     right: -50px;
     top: 360px;
@@ -132,7 +128,10 @@ export default {
     background: #666;
     box-shadow: 3px 3px #333;
   }
-  .home,.second,.third{
+  .content>.home,.content>.second,.content>.third{
     position: relative;
+  }
+  .box.title{
+
   }
 </style>

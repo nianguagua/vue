@@ -1,10 +1,23 @@
 <template>
- <div>
-    login123
-    Name: <input type="text" v-model="username">
-    Pass: <input type="password" v-model="password">
-    <button @click="submit2">submit</button>
- </div>
+  <el-container>
+    <el-header style="height:160px;"></el-header>
+    <el-main>
+      <div id="login">
+        <el-form ref="form" label-width="80px">
+          <el-form-item label="账号">
+            <el-input v-model="username"></el-input>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input v-model="password"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button @click="submit2">登录</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </el-main>
+    <el-footer></el-footer>
+  </el-container>
 </template>
 <script>
 export default {
@@ -60,5 +73,15 @@ export default {
 
 </script>
 <style scoped>
-
+  .el-main{
+    padding: 60px 30px;
+    background: #ccc;
+  }
+  #login{
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+  }
 </style>

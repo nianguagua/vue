@@ -1,6 +1,6 @@
 <template>
-  <div id="content">
-    <div id="top">
+  <el-container>
+    <el-header style="height:120px;">
       <el-row :gutter="10">
         <el-col :span="6">
           <headnavLeft></headnavLeft>
@@ -13,11 +13,11 @@
           </div>  
         </el-col>
         <el-col :span="4">
-          <headnavRight></headnavRight>
+          <headnavGirlRight></headnavGirlRight>
         </el-col>
       </el-row> 
-    </div> 
-    <div id="center">
+    </el-header> 
+    <el-main>
       <div style="height: 600px;width:60px;margin:0 auto;text-align: center;">
         <el-steps direction="vertical" :active="4" finish-status="success">
         <el-step v-popover:popover1 title="2015"></el-step>
@@ -46,8 +46,8 @@
           <p>hahahha</p>
           <p>hahahha</p>
       </el-popover>
-    </div>
-  </div>
+    </el-main>
+  </el-container>
 </template>
 <script>
 export default {
@@ -66,14 +66,14 @@ export default {
 }
 </script>
 <style scoped>
-  #top{
+  .el-header{
     background: #999;
   }
-  #center{
+  .el-main{
     min-height: 700px;
     padding-top: 15px;
   }
-  #content{
+  .el-container{
     height: 100%;
     min-height: 700px;
     background: #333;

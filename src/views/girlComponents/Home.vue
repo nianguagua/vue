@@ -1,11 +1,11 @@
 <template>
-	<div id="content">
-		<div id="top">
+	<el-container>
+		<el-header style="height:120px;">
 			<el-row :gutter="10">
 				<el-col :span="8">
 					<headnavLeft></headnavLeft>
 				</el-col>
-				<el-col :span="14">
+				<el-col :span="12">
 					<div class="box nav">
 						<template>
 							<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">
@@ -17,12 +17,12 @@
 						</template>
 					</div>  
 				</el-col>
-				<el-col :span="2">
-					<headnavRight></headnavRight>
+				<el-col :span="4">
+					<headnavGirlRight></headnavGirlRight>
 				</el-col>
 			</el-row> 
-		</div> 
-		<div id="center">
+		</el-header>
+		<el-main>
 			<el-row>
 				<el-col :span="2">
 					<div class="box">&nbsp;</div>
@@ -137,12 +137,11 @@
 					&nbsp;
 				</el-col>
 			</el-row>
-		</div>
-		<div id="bottom">
+		</el-main>
+		<el-footer style="height:20px">
 			
-		</div>
-		<codeDialog></codeDialog>
-	</div>
+		</el-footer>
+	</el-container>
 </template>
 
 <script>
@@ -195,33 +194,16 @@ export default {
 }
 </script>
 <style scoped>
-	/*---------动画-------------*/
-	@keyframes fadeImg{
-		
-	}
-	/*---------动画-------------*/
-	#content{
-		height: 100%;
-		background: url('../../../static/image/girlHomeBg.jpg');
-		background-size: cover;
+	.indroduce{
+		height: 520px;
+	 /* background: #ddd;*/
+		position: relative;
 	}
 	img.tip{
 		width: 50px;
 		height: 50px;
 		float: right;
 		margin-right: 10px;
-	}
-	/*-----center开始----------*/
-	#center{
-		height: 520px;
-		margin-bottom: 60px;
-		padding-top: 10px;
-		border-top: 1px solid #ccc;
-	}
-	#center .indroduce{
-		height: 520px;
-	 /* background: #ddd;*/
-		position: relative;
 	}
 	#home-indroduce,#second-indroduce,#third-indroduce,#fourth-indroduce{
 		width: 300px;
@@ -232,13 +214,13 @@ export default {
 		right: -20px;
 		box-shadow: 5px 5px #000;
 	}
-	#center .content{
+	.main .content{
 		height: 520px;
 		/*background: #999;*/
 	}
 	#home-content,#second-content,#third-content,#fourth-content{
-		width: 800px;
-		height: 100%;
+		/*width: 800px;*/
+		height: 500px;
 		background: #fff;
 	}
 	/*------home-----*/
@@ -255,10 +237,8 @@ export default {
 	#home-content .photo-box,.comic-box{
 		position: relative;
 		text-align: center;
+		background: #fff;	
 	}
-	/* img.img-photo:before{
-		opacity: 1;
-	} */
 	#home-content .photo-box img,.comic-box img{
 		max-width: 100%;
 		max-height: 100%;
@@ -277,11 +257,11 @@ export default {
 		text-align: center;
 		text-shadow: 1px 1px #000;
 	}
-	#home-content .photo1,.photo2,.photo3,.comic1,.comic2,.comic3{
+	.photo1,.photo2,.photo3,.comic1,.comic2,.comic3{
 		display: block;
-		width: 240px;
-		height: 300px;
-		line-height: 300px;
+		width: 200px;
+		height: 260px;
+		line-height: 200px;
 		left: 80px;
 		top: 50px;
 		position: absolute;
@@ -324,8 +304,9 @@ export default {
 	.next-box{
 		position: relative;
 		top:345px;
-		left: 800px;
+		/*left: 800px;*/
 		/*z-index: -1;*/
+		left: 100%;
 		width: 40px;
 		height: 70px;
 		padding-top:10px;
@@ -348,6 +329,4 @@ export default {
 		margin-top: 5px;
 		transform: rotate(-45deg);
 	}
-
-	/*-----center结束----------*/
 </style>

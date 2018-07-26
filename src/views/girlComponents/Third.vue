@@ -1,6 +1,6 @@
 <template>
-  <div id="content">
-    <div id="top">
+  <el-container>
+    <el-header style="height:120px;">
       <el-row :gutter="10">
         <el-col :span="6">
           <headnavLeft></headnavLeft>
@@ -13,11 +13,11 @@
           </div>  
         </el-col>
         <el-col :span="4">
-          <headnavRight></headnavRight>
+          <headnavGirlRight></headnavGirlRight>
         </el-col>
       </el-row> 
-    </div> 
-    <div id="center">
+    </el-header> 
+    <el-main>
       <el-row>
         <el-col :span="2">
           <div class="box">&nbsp;</div>
@@ -51,12 +51,12 @@
           &nbsp;
         </el-col>
       </el-row>
-    </div>
-    <div id="bottom">
+    </el-main>
+    <el-footer style="height:20px">
       
-    </div>
+    </el-footer>
     <codeDialog></codeDialog>
-  </div>
+  </el-container>
 </template>
 <script>
 export default {
@@ -76,15 +76,15 @@ export default {
 }
 </script>
 <style scoped>
-  #center{
+  .el-main{
     margin-bottom: 60px;
     padding-top: 10px;
     border-top: 1px solid #ccc;
   }
-  #center .left{
+  .el-main .left{
     background: #ccc;
   }
-  #center .right{
+  .el-main .right{
     padding: 10px;
     max-height: 530px;
     background: #999;

@@ -41,10 +41,12 @@ Vue.component('headnavCenter',{
             +'</el-menu-item>'
           +'</el-menu>'
 })
-Vue.component('headnavRight',{
-  template:'<div class="box change-sex"><router-link to="/boy"><img class="boy" src="../../../static/image/boy.png" alt="" /></router-link><router-link to="/"><img class="girl" src="../../../static/image/girl.png" alt="" /></router-link></div>'
+Vue.component('headnavGirlRight',{
+  template:'<div class="box change-sex"><router-link to="/boy"><img class="boy" src="../../../static/image/boy.png" alt="" /></router-link><router-link to="/"><img class="girl active" src="../../../static/image/girl.png" alt="" /></router-link></div>'
 })
-
+Vue.component('headnavBoyRight',{
+  template:'<div class="box change-sex"><router-link to="/boy"><img class="boy active" src="../../../static/image/boy.png" alt="" /></router-link><router-link to="/"><img class="girl" src="../../../static/image/girl.png" alt="" /></router-link></div>'
+})
 Vue.component('codeDialog',{
 	data:function(){
 		return {
@@ -61,6 +63,10 @@ Vue.component('codeDialog',{
 	methods:{
 		submiteCode:function(){
 			var getCode = this.code;
+      if(getCode == ""){
+        alert("code不能为空");
+        return;
+      }
 			this.$store.commit('freshCode',getCode);
 			// alert("提交CODE");
 			this.openDialog = false;

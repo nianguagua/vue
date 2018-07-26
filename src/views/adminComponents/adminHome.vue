@@ -1,16 +1,16 @@
 <template>
- <div>
-   <div id="top">
+ <el-container>
+   <el-header style="height:120px;">
      <el-row :gutter="10">
         <el-col :span="12">12</el-col>
         <el-col :span="12">
           <i class="el-icon-menu" style="float:right" @click="logout"></i>
         </el-col>
      </el-row>
-   </div>
-   <div id="center">
+   </el-header>
+   <el-main>
       <el-row :gutter="10">
-        <el-col :span="4">
+        <el-col :span="6">
           <div id="left">
             <el-menu default-active="boyHome" :unique-opened=true>
               <el-submenu index="1">
@@ -46,7 +46,7 @@
             </el-menu>
           </div>
         </el-col>
-        <el-col :span="20">
+        <el-col :span="18">
           <div id="right">
             <div id="boyHomeAdmin" v-if="currentShow == 'boyHome'">
               boyHomeAdmin
@@ -69,8 +69,8 @@
           </div>
         </el-col>
       </el-row> 
-   </div>
- </div>
+   </el-main>
+ </el-container>
 </template>
 <script>
 export default {
@@ -96,9 +96,9 @@ export default {
   .el-menu{
     border:none;
   }
-  #left,#right{
+/*  #left,#right{
     height: 600px;
-  }
+  }*/
   #right{
     background: #ccc;
   }

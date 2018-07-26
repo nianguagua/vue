@@ -4,40 +4,38 @@
   a{
     text-decoration: none;
   }
-  #content{
+  /*#content{
     min-width: 1250px;
-  }
+  }*/
   /*-----top开始----------*/
-  #top{
-    height: 120px;
+  header.el-header{
+    /*background-color: #B3C0D1;*/
     /*border: 1px solid pink;*/
   }
-  #top .title{
+  .el-header .title{
     height: 120px;
     line-height: 120px;
     text-align: center;
     background: url('../../../static/image/title.png') no-repeat;
     background-size: 80% 80%;
   }
-  #top .nav{
+  .el-header .nav{
     margin-top: 50px;
   }
-  #top .change-sex {
+  .el-header .change-sex {
     text-align: right;
-    /* background: #fff; */
   }
-  #top .change-sex img{
+  .el-header .change-sex img{
     width: 30px;
     height: 30px;
     border-radius: 15px;
     margin-top: 10px;
     border: 2px solid #000;
-    /* border: 1px solid red; */
   }
-  #top .change-sex img.boy{
+  .el-header .change-sex img.boy{
     margin-right: 5px;
   }
-  #top .change-sex img.girl{
+  .el-header .change-sex img.active{
     width: 40px;
     height: 40px;
     border-radius: 20px;
@@ -64,20 +62,17 @@
   .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, .el-menu--horizontal>.el-submenu .el-submenu__title:hover{
     background: none;
   }
-  #top .top-nav{
+  .el-header .top-nav{
     /*margin-left: 100px;*/
     background: transparent;
   }
   /*-----top结束----------*/
 
   /*-----bottom开始----------*/
-  #bottom{
-    position: fixed;
-    left: 0;
-    bottom: 0px;
-    height: 30px;
+  .el-footer{
     width: 100%;
-    background: #000;
-
+    position: fixed;
+    bottom: 0px;
+    background-color: #B3C0D1;
   }
   /*-----bottom结束----------*/
