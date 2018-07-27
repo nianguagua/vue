@@ -6,11 +6,6 @@ Vue.component('headnavLeft',{
 })
 Vue.component('headnavCenter',{
   props:['activeIndex'],
-  data:function(){
-  	return{
-  		// active
-  	}
-  },
   methods:{
   	checkCode:function(){
   		if(this.$store.state.code === ''){
@@ -41,6 +36,22 @@ Vue.component('headnavCenter',{
             +'</el-menu-item>'
           +'</el-menu>'
 })
+Vue.component('boyHeadNavCenter',{
+  props:['activeIndex'],
+  template:'<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">'
+                +'<el-menu-item index="home">'
+                  +'<router-link to="/boy">Home</router-link>'
+                +'</el-menu-item>'
+                +'<el-menu-item index="first">'
+                  +'<router-link to="/boyFirst">A</router-link>'
+                +'</el-menu-item>'
+                +'<el-menu-item index="second">'
+                 +'<router-link to="/boySecond">B</router-link>'
+                +'</el-menu-item>'
+                +'<el-menu-item index="third">C</el-menu-item>'
+              +'</el-menu>'
+})
+
 Vue.component('headnavGirlRight',{
   template:'<div class="box change-sex"><router-link to="/boy"><img class="boy" src="../../../static/image/boy.png" alt="" /></router-link><router-link to="/"><img class="girl active" src="../../../static/image/girl.png" alt="" /></router-link></div>'
 })

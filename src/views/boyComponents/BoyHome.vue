@@ -46,7 +46,42 @@
         <el-col :span="16">
           <div class="box content">
             <div class="home boyhome-content" v-if="currentShow == 'home'">
-              home
+              <el-row class="home-tip">
+                <el-col>
+                  <el-card :body-style="{ padding: '0px' }">
+                    <div style="padding: 14px;">
+                      <span>home</span>
+                      <div class="bottom clearfix">
+                        <time class="time">2018-07-27</time>
+                      </div>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
+              <el-row class="home-tip">
+                <el-col>
+                  <el-card :body-style="{ padding: '0px' }">
+                    <div style="padding: 14px;">
+                      <span>home2</span>
+                      <div class="bottom clearfix">
+                        <time class="time">2018-07-27</time>
+                      </div>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
+              <el-row class="home-tip">
+                <el-col>
+                  <el-card :body-style="{ padding: '0px' }">
+                    <div style="padding: 14px;">
+                      <span>home3</span>
+                      <div class="bottom clearfix">
+                        <time class="time">2018-07-27</time>
+                      </div>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
               <router-link to="/boyfirst">
                 <div class="go go-first">
                   Go
@@ -128,10 +163,16 @@ export default {
     background: #666;
     box-shadow: 3px 3px #333;
   }
+  .content{
+    padding: 10px;
+  }
   .content>.home,.content>.second,.content>.third{
     position: relative;
   }
   .box.title{
 
+  }
+  .home-tip{
+    margin-top: 10px;
   }
 </style>
