@@ -102,7 +102,6 @@
 						</div>
 						<div id="second-content" v-if="currentShow == 'second'">
 							second
-							<img src="../../../static/image/girl.jpg" alt="" />
 							<div class="next-box">
 								<router-link to="/second">
 									<div class="box">
@@ -194,6 +193,10 @@ export default {
 }
 </script>
 <style scoped>
+	.el-container{
+	    background-size: cover;
+	    background: url('../../../static/image/girlHomeBg.jpg');
+  	}
 	.indroduce{
 		height: 520px;
 	 /* background: #ddd;*/
@@ -221,7 +224,8 @@ export default {
 	#home-content,#second-content,#third-content,#fourth-content{
 		/*width: 800px;*/
 		height: 500px;
-		background: #fff;
+		background: url('../../../static/image/girlHomeBg2.jpg');
+		background-size: cover;
 	}
 	/*------home-----*/
 	#home-indroduce p{
@@ -229,10 +233,6 @@ export default {
 		text-indent: 2em;
 		padding: 0 5px;
 		line-height: 30px;
-	}
-	#home-content{
-		background: url('../../../static/image/girlHomeBg2.jpg');
-		background-size: cover;
 	}
 	#home-content .photo-box,.comic-box{
 		position: relative;

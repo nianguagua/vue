@@ -17,7 +17,7 @@ export default {
       width: 100%;
       border: none;
     }
-   /* #app{
+    /*#app{
       background-size: cover;
       background: url('../static/image/girlHomeBg.jpg');
     }*/

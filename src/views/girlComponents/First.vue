@@ -143,6 +143,9 @@ export default {
 }
 </script>
 <style scoped>
+  .el-container{
+    
+  }
   p.heart{
     text-align: right;
   }

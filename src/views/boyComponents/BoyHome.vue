@@ -9,9 +9,9 @@
           <div class="box nav">
             <template>
               <el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">
-                <el-menu-item index="home">A</el-menu-item>
-                <el-menu-item index="second">B</el-menu-item>
-                <el-menu-item index="third">C</el-menu-item>
+                <el-menu-item index="home">Home</el-menu-item>
+                <el-menu-item index="second">Second</el-menu-item>
+                <el-menu-item index="third">Third</el-menu-item>
               </el-menu>
             </template>
           </div>  
@@ -89,7 +89,20 @@
               </router-link>
             </div>
             <div class="second boysecond-content" v-if="currentShow == 'second'">
-              second
+              <el-row>
+                <el-col :span="6" v-for="(o, index) in 3" :key="o" :offset="1">
+                  <el-card :body-style="{ padding: '0px' }">
+                    <img src="../../../static/image/photo1.jpg" class="image">
+                    <div style="padding: 14px;">
+                      <span>demo</span>
+                      <div class="bottom clearfix">
+                        <time class="time">2018-07-30</time>
+                        <el-button type="text" class="button">下载</el-button>
+                      </div>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
               <router-link to="/boysecond">
                 <div class="go go-second">
                   Go
@@ -133,9 +146,17 @@ export default {
 }
 </script>
 <style scoped>
+  .el-container{
+    background-size: cover;
+    background: url('../../../static/image/boyHomeBg.jpg');
+  } 
+  .box.content{
+    background-size: cover;
+    background: url('../../../static/image/boyHomeBg2.jpg');
+  }
   .indroduce,.content{
     height: 500px;
-    background: #ccc;
+    background: #000;
     padding-top: 10px;
   }
   .indroduce{
@@ -146,7 +167,7 @@ export default {
     width: 160px;
     height: 160px;
     border-radius: 90px;
-    background: #666;
+    background: #40afab;
     margin-left: -50px;
     padding: 10px;
     text-align: center;
@@ -160,11 +181,9 @@ export default {
     line-height: 100px;
     text-align: center;
     border-radius: 50px;
-    background: #666;
-    box-shadow: 3px 3px #333;
-  }
-  .content{
-    padding: 10px;
+    color: #fff;
+    background: #40afab;
+    box-shadow: 3px 3px #000;
   }
   .content>.home,.content>.second,.content>.third{
     position: relative;
@@ -174,5 +193,8 @@ export default {
   }
   .home-tip{
     margin-top: 10px;
+  }
+  .boysecond-content img{
+    max-width: 100%;
   }
 </style>

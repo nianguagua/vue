@@ -38,7 +38,7 @@ Vue.component('headnavCenter',{
 })
 Vue.component('boyHeadNavCenter',{
   props:['activeIndex'],
-  template:'<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">'
+  template:'<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal">'
                 +'<el-menu-item index="home">'
                   +'<router-link to="/boy">Home</router-link>'
                 +'</el-menu-item>'
@@ -46,9 +46,11 @@ Vue.component('boyHeadNavCenter',{
                   +'<router-link to="/boyFirst">A</router-link>'
                 +'</el-menu-item>'
                 +'<el-menu-item index="second">'
-                 +'<router-link to="/boySecond">B</router-link>'
+                  +'<router-link to="/boySecond">B</router-link>'
                 +'</el-menu-item>'
-                +'<el-menu-item index="third">C</el-menu-item>'
+                +'<el-menu-item index="third">'
+                   +'<router-link to="/boyThird">C</router-link>'
+                +'</el-menu-item>'
               +'</el-menu>'
 })
 
