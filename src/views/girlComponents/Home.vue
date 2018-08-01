@@ -194,6 +194,7 @@ export default {
 </script>
 <style scoped>
 	.el-container{
+			height: 100%;
 	    background-size: cover;
 	    background: url('../../../static/image/girlHomeBg.jpg');
   	}
