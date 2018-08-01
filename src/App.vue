@@ -21,4 +21,7 @@ export default {
       background-size: cover;
       background: url('../static/image/girlHomeBg.jpg');
     }*/
+    .el-container{
+      height: 100%;
+    }
 </style>

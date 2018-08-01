@@ -140,6 +140,7 @@
 		<el-footer style="height:20px">
 			
 		</el-footer>
+		<codeDialog></codeDialog>
 	</el-container>
 </template>
 
@@ -194,7 +195,6 @@ export default {
 </script>
 <style scoped>
 	.el-container{
-			height: 100%;
 	    background-size: cover;
 	    background: url('../../../static/image/girlHomeBg.jpg');
   	}

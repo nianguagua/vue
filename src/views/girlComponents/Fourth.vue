@@ -73,9 +73,7 @@ export default {
     min-height: 700px;
     padding-top: 15px;
   }
-  .el-container{
-    height: 100%;
-    min-height: 700px;
+  .el-main{
     background: #333;
   }
 </style>

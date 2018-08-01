@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="height:120px;">
+    <el-header style="height:120px;border-bottom:1px solid #ccc;">
       <el-row :gutter="10">
         <el-col :span="6">
           <headnavLeft></headnavLeft>
@@ -17,107 +17,149 @@
         </el-col>
       </el-row> 
     </el-header> 
-    <el-main>
-      <el-row>
-        <el-col :span="2">
-          <div class="box">&nbsp;</div>
-        </el-col>
-        <el-col :span="4" class="left">
-          <div class="tab-name">
-            
-          </div>
-          <div class="menu">
-            <el-menu default-active="photo">
-              <el-menu-item index="photo" @click="changeTab('photo')">
-                  <i class="el-icon-document"></i>
-                  <span slot="title">PHOTO</span>
-              </el-menu-item>
-              <el-menu-item index="comic" @click="changeTab('comic')">
-                  <i class="el-icon-location"></i>
-                  <span slot="title">COMIC</span>
-              </el-menu-item>
-            </el-menu>
-          </div>
-        </el-col>
-        <el-col :span="16" class="right">
+    <el-main  style="background: #eee;">
+      <el-container>
+        <el-aside width="300px">
+          <el-menu default-active="photo">
+            <el-menu-item index="photo" @click="changeTab('photo')">
+                <i class="el-icon-document"></i>
+                <span slot="title">PHOTO</span>
+            </el-menu-item>
+            <el-menu-item index="comic" @click="changeTab('comic')">
+                <i class="el-icon-location"></i>
+                <span slot="title">COMIC</span>
+            </el-menu-item>
+          </el-menu>
+        </el-aside>
+        <el-main>
           <div class="photo" v-if="currentShow == 'photo'">
             <el-row :gutter="10">
               <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo1.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
               </el-col>
               <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo2.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
               </el-col>
               <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo3.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
               </el-col>
               <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
-              </el-col>
-            </el-row>
-            <el-row :gutter="10">
-              <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
-              </el-col>
-              <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo1.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
               </el-col>
               <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo2.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
               </el-col>
               <el-col :span="6">
-                <div class="comic-box">
-                  6
-                </div>
-                <p class="heart">
-                  <span>*</span><span>*</span><span>*</span><span>*</span><span>*</span>
-                </p>
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo1.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="6">
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo3.jpg" class="image">
+                  </div>
+                  <div style="padding: 14px;">
+                    <span>
+                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      </el-rate>
+                    </span>
+                    <div class="bottom clearfix">
+                      <time class="time">2018-08-01</time>
+                      <el-button type="text" class="button" icon="el-icon-download"></el-button>
+                    </div>
+                  </div>
+                </el-card>
               </el-col>
             </el-row>
           </div>
           <div class="comic" v-if="currentShow == 'comic'">
             comic
           </div>
-        </el-col>
-        <el-col :span="2">
-          &nbsp;
-        </el-col>
-      </el-row>
+        </el-main>
+      </el-container>
     </el-main>
     <el-footer style="height:20px">
       
@@ -131,7 +173,8 @@ export default {
   data () {
     return {
       activeIndex: 'first',
-      currentShow: "photo"
+      currentShow: "photo",
+      value1: null
     }
   },
   methods:{
@@ -146,30 +189,32 @@ export default {
   .el-container{
     
   }
+  .el-card{
+    height: 300px;
+    margin-bottom: 10px; 
+  }
+  div.img{
+    text-align: center;
+    height: 200px;
+    background: #333;
+  }
+  img{
+    max-width: 100%;
+    max-height: 200px;
+  }
   p.heart{
     text-align: right;
   }
-  #center{
-    margin-bottom: 60px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
-  }
-  #center .left{
-    background: #ccc;
-  }
-  #center .right{
-    padding: 10px;
-    max-height: 530px;
-    background: #999;
-    overflow-y: scroll;
-  }
-  .left .tab-name{
-    height: 100px;
-    background: #777;
+  .el-main{
+    padding: 0;
   }
   .comic-box{
     height: 250px;
     background: #ccc;
     margin-bottom: 10px;
+  }
+  .button {
+    padding: 0;
+    float: right;
   }
 </style>
