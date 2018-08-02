@@ -41,7 +41,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">
@@ -58,7 +59,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">
@@ -75,7 +77,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                     <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">
@@ -92,7 +95,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">
@@ -109,7 +113,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">
@@ -126,7 +131,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">
@@ -143,7 +149,8 @@
                   </div>
                   <div style="padding: 14px;">
                     <span>
-                      <el-rate v-model="value1" :icon-classes="['el-icon-star-off', 'el-icon-edit', 'el-icon-location']">
+                      <el-rate v-model="value1" :icon-classes="['el-icon-cn-jushoucanggift', 'el-icon-cn-jushoucanggift','el-icon-cn-jushoucanggift']" void-icon-class="el-icon-cn-jushoucang" 
+                      :colors="['#99A9BF', '#F7BA2A', '#f70303']">
                       </el-rate>
                     </span>
                     <div class="bottom clearfix">

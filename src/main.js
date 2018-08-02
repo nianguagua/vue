@@ -13,6 +13,7 @@ import https from './https/http.js'
 import store from './store/store.js'
 import './assets/js/homeJs.js'
 import App from './App'
+import './assets/icon/iconfont.css'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
