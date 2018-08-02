@@ -24,4 +24,7 @@ export default {
     .el-container{
       height: 100%;
     }
+    .el-main{
+      padding: 0;
+    }
 </style>

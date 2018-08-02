@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="height:120px;">
+    <el-header style="height:120px;border-bottom:1px solid #ccc;">
       <el-row :gutter="10">
         <el-col :span="6">
           <headnavLeft></headnavLeft>
@@ -17,41 +17,33 @@
         </el-col>
       </el-row> 
     </el-header> 
-    <el-main>
-      <el-row>
-        <el-col :span="2">
-          <div class="box">&nbsp;</div>
-        </el-col>
-        <el-col :span="4" class="left">
-          <div class="tab-name">
+    <el-container>
+      <el-aside width="300px">
+        <div class="tab-name">
             
-          </div>
-          <div class="menu">
-            <el-menu default-active="app">
-              <el-menu-item index="app" @click="changeTab('app')">
-                  <i class="el-icon-document"></i>
-                  <span slot="title">APP</span>
-              </el-menu-item>
-              <el-menu-item index="demo" @click="changeTab('demo')">
-                  <i class="el-icon-location"></i>
-                  <span slot="title">DEMO</span>
-              </el-menu-item>
-            </el-menu>
-          </div>
-        </el-col>
-        <el-col :span="16" class="right">
-          <div class="app" v-if="currentShow == 'app'">
-            app
-          </div>
-          <div class="demo" v-if="currentShow == 'demo'">
-            demo
-          </div>
-        </el-col>
-        <el-col :span="2">
-          &nbsp;
-        </el-col>
-      </el-row>
-    </el-main>
+        </div>
+        <div class="menu">
+          <el-menu default-active="app">
+            <el-menu-item index="app" @click="changeTab('app')">
+                <i class="el-icon-document"></i>
+                <span slot="title">APP</span>
+            </el-menu-item>
+            <el-menu-item index="demo" @click="changeTab('demo')">
+                <i class="el-icon-location"></i>
+                <span slot="title">DEMO</span>
+            </el-menu-item>
+          </el-menu>
+        </div>
+      </el-aside>
+      <el-main>
+        <div class="app" v-if="currentShow == 'app'">
+          app
+        </div>
+        <div class="demo" v-if="currentShow == 'demo'">
+          demo
+        </div>
+      </el-main>
+    </el-container>
     <el-footer style="height:20px">
       
     </el-footer>
@@ -64,7 +56,7 @@ export default {
   data () {
     return {
       activeIndex: 'third',
-      currentShow: "photo"
+      currentShow: "app"
     }
   },
   methods:{
@@ -76,24 +68,6 @@ export default {
 }
 </script>
 <style scoped>
-  .el-main{
-    margin-bottom: 60px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
-  }
-  .el-main .left{
-    background: #ccc;
-  }
-  .el-main .right{
-    padding: 10px;
-    max-height: 530px;
-    background: #999;
-    overflow-y: scroll;
-  }
-  .left .tab-name{
-    height: 100px;
-    background: #777;
-  }
   .comic-box{
     height: 250px;
     background: #ccc;

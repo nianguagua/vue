@@ -181,7 +181,7 @@ export default {
     return {
       activeIndex: 'first',
       currentShow: "photo",
-      value1: null
+      value1: 3
     }
   },
   methods:{
@@ -211,9 +211,6 @@ export default {
   }
   p.heart{
     text-align: right;
-  }
-  .el-main{
-    padding: 0;
   }
   .comic-box{
     height: 250px;

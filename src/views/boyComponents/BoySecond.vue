@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="height:120px;">
+    <el-header style="height:120px;border-bottom:1px solid #ccc;">
       <el-row :gutter="10">
         <el-col :span="6">
           <headnavLeft></headnavLeft>
@@ -17,34 +17,32 @@
         </el-col>
       </el-row> 
     </el-header> 
-    <el-main>
-      <el-row>
-        <el-col :span="2">
-          <div class="box">&nbsp;</div>
-        </el-col>
-        <el-col :span="4" class="left">
-          <div class="tab-name">
+    <el-container>
+      <el-aside width="300px">
+        <div class="tab-name">
             
-          </div>
-          <div class="menu">
-            <el-menu default-active="app">
-              <el-menu-item index="app" @click="changeTab('app')">
-                  <i class="el-icon-document"></i>
-                  <span slot="title">APP</span>
-              </el-menu-item>
-              <el-menu-item index="demo" @click="changeTab('demo')">
-                  <i class="el-icon-location"></i>
-                  <span slot="title">DEMO</span>
-              </el-menu-item>
-            </el-menu>
-          </div>
-        </el-col>
-        <el-col :span="16" class="right">
-          <div class="app" v-if="currentShow == 'app'">
+        </div>
+        <div class="menu">
+          <el-menu default-active="app">
+            <el-menu-item index="app" @click="changeTab('app')">
+                <i class="el-icon-document"></i>
+                <span slot="title">APP</span>
+            </el-menu-item>
+            <el-menu-item index="demo" @click="changeTab('demo')">
+                <i class="el-icon-location"></i>
+                <span slot="title">DEMO</span>
+            </el-menu-item>
+          </el-menu>
+        </div>
+      </el-aside>
+      <el-main>
+        <div class="app" v-if="currentShow == 'app'">
             <el-row>
-              <el-col :span="5" v-for="(o, index) in 4" :key="o" :offset="1">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img src="../../../static/image/photo1.jpg" class="image">
+              <el-col :span="6" v-for="(o, index) in 4" :key="o">
+                <el-card>
+                  <div class="img">
+                    <img src="../../../static/image/photo1.jpg" class="image">
+                  </div>
                   <div style="padding: 14px;">
                     <span>App</span>
                     <div class="bottom clearfix">
@@ -55,43 +53,27 @@
                 </el-card>
               </el-col>
             </el-row>
-          </div>
-          <div class="demo" v-if="currentShow == 'demo'">
-            <el-row>
-              <el-col :span="5" v-for="(o, index) in 4" :key="o" :offset="1">
-                <el-card :body-style="{ padding: '0px' }">
+        </div>
+        <div class="demo" v-if="currentShow == 'demo'">
+          <el-row>
+            <el-col :span="6" v-for="(o, index) in 8" :key="o">
+              <el-card>
+                <div class="img">
                   <img src="../../../static/image/photo2.jpg" class="image">
-                  <div style="padding: 14px;">
-                    <span>Demo</span>
-                    <div class="bottom clearfix">
-                      <time class="time">2018-07-30</time>
-                      <el-button type="text" class="button">下载</el-button>
-                    </div>
+                </div>
+                <div style="padding: 14px;">
+                  <span>Demo</span>
+                  <div class="bottom clearfix">
+                    <time class="time">2018-07-30</time>
+                    <el-button type="text" class="button">下载</el-button>
                   </div>
-                </el-card>
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="5" v-for="(o, index) in 4" :key="o" :offset="1">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img src="../../../static/image/photo2.jpg" class="image">
-                  <div style="padding: 14px;">
-                    <span>Demo</span>
-                    <div class="bottom clearfix">
-                      <time class="time">2018-07-30</time>
-                      <el-button type="text" class="button">下载</el-button>
-                    </div>
-                  </div>
-                </el-card>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-        <el-col :span="2">
-          &nbsp;
-        </el-col>
-      </el-row>
-    </el-main>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+      </el-main>
+    </el-container>
     <el-footer style="height:20px">
       
     </el-footer>
@@ -116,15 +98,20 @@ export default {
 }
 </script>
 <style scoped>
-  .el-main{
-    margin-bottom: 60px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
-  }
-  .app .el-row,.demo .el-row{
-    margin-top: 5px;
-  }
   .app img,.demo img{
     max-width: 100%;
+  }
+  .el-card{
+    height: 300px;
+    margin-bottom: 10px; 
+  }
+  div.img{
+    text-align: center;
+    height: 200px;
+    background: #333;
+  }
+  img{
+    max-width: 100%;
+    max-height: 200px;
   }
 </style>
