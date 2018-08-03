@@ -9,6 +9,7 @@ import 'vue2-animate/dist/vue2-animate.min.css'
 import './assets/css/header.css'
 import VueRouter from 'vue-router'
 import router from './router'
+import "babel-polyfill"
 import https from './https/http.js'
 import store from './store/store.js'
 import './assets/js/homeJs.js'
@@ -54,7 +55,18 @@ if (window.sessionStorage.getItem('token')) {
 if (window.sessionStorage.getItem('code')) {
     store.commit('freshCode', window.sessionStorage.getItem('code'))
 }
-/* eslint-disable no-new */
+/*全局设置ajax请求头*/
+axios.defaults.headers = {
+    "Content-Type":"application/x-www-form-urlencoded"
+}
+axios.defaults.transformRequest = [function (data) {
+    var newData = "";
+    for(var k in data){
+        newData += encodeURIComponent(k) + '=' + encodeURIComponent(data[k])+'&'
+    }
+    return newData
+}]
+
 new Vue({
   el: '#app',
   router,
