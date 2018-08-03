@@ -52,16 +52,17 @@ export default {
   		})
     },
     submit2:function(){
- 			// var result = true;
- 			// if(result){
- 			// 	var cur = this.username;
- 			// 	this.$store.commit('login',cur);
- 			// 	console.log(sessionStorage.user);
-	   //  	let redirect = decodeURIComponent(this.$route.query.redirect || '/');
-	   //        this.$router.push({
-	   //          path: redirect
-	   //        })var params = new URLSearchParams();
- 			// }
+ 			var result = true;
+ 			if(result){
+ 				var cur = this.username;
+ 				this.$store.commit('login',cur);
+ 				console.log(sessionStorage.user);
+	    	let redirect = decodeURIComponent(this.$route.query.redirect || '/');
+	          this.$router.push({
+	            path: redirect
+	          })
+ 			}
+      /*
  			var params = new URLSearchParams();
  			params.append("username","chengnian");
  			params.append("password","123456");
@@ -72,6 +73,7 @@ export default {
 	      .catch(function(err){
 	        console.log(err);
 	      })
+        */
     }
   }
 }

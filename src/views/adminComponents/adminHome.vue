@@ -55,7 +55,44 @@
             boyThirdAdmin
           </div>
           <div id="girlHomeAdmin" v-if="currentShow == 'girlFirst'">
-            girlFirstAdmin
+            <el-row class="nav">
+              <el-col :span="20" style="padding-left:10px;">
+                <el-date-picker v-model="girlFirstStart" type="date" placeholder="开始时间"></el-date-picker>
+                <span>-</span>
+                <el-date-picker v-model="girlFirstEnd" type="date" placeholder="结束时间"></el-date-picker>
+                <el-button type="primary" icon="el-icon-search">搜索</el-button>
+              </el-col>
+              <el-col :span="4" style="text-align: right;"><i class="el-icon-upload"></i></el-col>
+            </el-row>
+            <el-row class="box" style="padding-top:10px">
+              <el-col :span="14">
+                <el-table :data="tableData" style="width: 100%">
+                    <el-table-column type="selection"></el-table-column>
+                    <el-table-column label="图片概况" prop="pic">
+                      <template slot-scope="scope">
+                        <el-row>
+                          <el-col class="face">
+                            <img v-bind:src="scope.row.pic" alt="">
+                          </el-col>
+                          <el-col class="info-box" :span="14">
+                            <div class="time">2018-08-03</div>
+                            <div class="describe">des</div>
+                          </el-col>
+                        </el-row>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="操作" align="center" width="120">
+                      <template slot-scope="scope">
+                        <el-button-group>
+                          <el-button type="primary" size="small" icon="el-icon-edit"></el-button>
+                          <el-button type="danger" size="small" icon="el-icon-delete"></el-button>
+                        </el-button-group>
+                      </template>
+                    </el-table-column>
+                </el-table>
+              </el-col>
+              <el-col :span="10">10</el-col>
+            </el-row>
           </div>
           <div id="girlSecondAdmin" v-if="currentShow == 'girlSecond'">
             girlSecondAdmin
@@ -82,7 +119,14 @@ export default {
   name: 'AdminHome',
   data () {
     return {
-      currentShow:'boyFirst'
+      girlFirstStart:"",
+      girlFirstEnd:"",
+      currentShow:'boyFirst',
+      tableData:[
+        {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
+        {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"},
+        {pic:"../../../static/image/photo3.jpg",time:"2018-08-03",des:"photo3"}
+      ]
     }
   },
   methods: {
@@ -119,5 +163,45 @@ export default {
   }
   .el-menu{
     border: none;
+  }
+  /**/
+  #girlHomeAdmin .nav{
+    /*background: #ccc;*/
+    height: 50px;
+    line-height: 50px;
+  }
+  #girlHomeAdmin .box{
+    /*background: #999;*/
+  }
+  #girlHomeAdmin .el-icon-upload{
+    margin-right: 25px;
+  }
+  #girlHomeAdmin .el-date-editor{
+    margin:0 10px;
+  }
+  #girlHomeAdmin .face{
+    width:60px;
+    height:60px;
+    line-height: 60px;
+    background: #333;
+    text-align: center;
+  }
+  #girlHomeAdmin .face>img{
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  #girlHomeAdmin .info-box{
+    height:60px;
+    border: 1px solid #eee;
+  }
+  #girlHomeAdmin .info-box .time{
+    padding-left: 10px;
+    font-size: smaller;
+    border-bottom: 1px solid #eee
+  }
+  #girlHomeAdmin .info-box .describe{
+    padding-left: 10px;
   }
 </style>
