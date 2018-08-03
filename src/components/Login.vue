@@ -62,13 +62,21 @@ export default {
 	            path: redirect
 	          })
  			}
-      // this.$ajax.get('/apis/hello/68')
-      // .then(function(res){
-      //   console.log(res);
-      // })
-      // .catch(function(err){
-      //   console.log(err);
-      // })
+      
+      /*
+      this.$ajax.post('/intelliffic_web/httpProxy/getData',{
+        "type": "post",
+        "url":"http://10.10.100.204:8090/intellirt/get_acs_states",
+        "json":'{"count":1000000,"index":1,"user":"nian1","ver":"1.1"}',
+        "time":new Date().getTime()
+      })
+      .then(function(res){
+        console.log(res);
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+      */
     }
   }
 }
