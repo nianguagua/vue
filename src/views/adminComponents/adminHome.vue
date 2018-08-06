@@ -67,31 +67,41 @@
             <el-row class="box" style="padding-top:10px">
               <el-col :span="14">
                 <el-table :data="tableData" style="width: 100%">
-                    <el-table-column type="selection"></el-table-column>
-                    <el-table-column label="图片概况" prop="pic">
-                      <template slot-scope="scope">
-                        <el-row>
-                          <el-col class="face">
-                            <img v-bind:src="scope.row.pic" alt="">
-                          </el-col>
-                          <el-col class="info-box" :span="14">
-                            <div class="time">2018-08-03</div>
-                            <div class="describe">des</div>
-                          </el-col>
-                        </el-row>
-                      </template>
-                    </el-table-column>
-                    <el-table-column label="操作" align="center" width="120">
-                      <template slot-scope="scope">
-                        <el-button-group>
-                          <el-button type="primary" size="small" icon="el-icon-edit"></el-button>
-                          <el-button type="danger" size="small" icon="el-icon-delete"></el-button>
-                        </el-button-group>
-                      </template>
-                    </el-table-column>
+                  <el-table-column type="selection"></el-table-column>
+                  <el-table-column label="图片概况" prop="pic">
+                    <template slot-scope="scope">
+                      <el-row>
+                        <el-col class="face">
+                          <img v-bind:src="scope.row.pic" alt="">
+                        </el-col>
+                        <el-col class="info-box" :span="14">
+                          <div class="time">{{scope.row.time}}</div>
+                          <div class="describe">{{scope.row.des}}</div>
+                        </el-col>
+                      </el-row>
+                    </template>
+                  </el-table-column>
+                  <el-table-column label="操作" align="center" width="120">
+                    <template slot-scope="scope">
+                      <el-button-group>
+                        <el-button type="primary" size="small" icon="el-icon-edit"></el-button>
+                        <el-button type="danger" size="small" icon="el-icon-delete"></el-button>
+                      </el-button-group>
+                    </template>
+                  </el-table-column>
                 </el-table>
+                <div class="page">
+                  <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
+                </div>
               </el-col>
-              <el-col :span="10">10</el-col>
+              <el-col :span="10">
+                <div class="top" id="echart-admin" :style="{width: '300px',height:'200px'}">
+                  top
+                </div>
+                <div class="bottom">
+                  bottom
+                </div>
+              </el-col>
             </el-row>
           </div>
           <div id="girlSecondAdmin" v-if="currentShow == 'girlSecond'">
@@ -115,24 +125,31 @@
  </el-container>
 </template>
 <script>
+import {initFun} from '../../assets/js/admin/adminHome.js'
 export default {
   name: 'AdminHome',
   data () {
     return {
       girlFirstStart:"",
       girlFirstEnd:"",
-      currentShow:'boyFirst',
+      currentShow:'girlFirst',
       tableData:[
         {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
         {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"},
-        {pic:"../../../static/image/photo3.jpg",time:"2018-08-03",des:"photo3"}
+        {pic:"../../../static/image/photo3.jpg",time:"2018-08-03",des:"photo3"},
+        {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
+        {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"}
       ]
     }
+  },
+  mounted:function(){
+    initFun.initChart("echart-admin");
   },
   methods: {
     changeTab:function(val){
       var _self = this;
       _self.currentShow = val;
+      this.test();
     },
     logout:function(){
       this.$store.commit('logout','');
@@ -194,14 +211,27 @@ export default {
   }
   #girlHomeAdmin .info-box{
     height:60px;
-    border: 1px solid #eee;
+    /*border: 1px solid #eee;*/
   }
   #girlHomeAdmin .info-box .time{
     padding-left: 10px;
     font-size: smaller;
-    border-bottom: 1px solid #eee
+    /*border-bottom: 1px solid #eee*/
   }
   #girlHomeAdmin .info-box .describe{
     padding-left: 10px;
+  }
+  #girlHomeAdmin .page{
+    background: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  #girlHomeAdmin .top{
+    height: 255px;
+    background: #333;
+  }
+  #girlHomeAdmin .bottom{
+    height: 270px;
+    background: #ccc;
   }
 </style>

@@ -12,9 +12,10 @@ import router from './router'
 import "babel-polyfill"
 import https from './https/http.js'
 import store from './store/store.js'
-import './assets/js/homeJs.js'
+import './assets/js/common/homeJs.js'
 import App from './App'
 import './assets/icon/iconfont.css'
+import echarts from 'echarts'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -22,6 +23,7 @@ Vue.use(Vuex)
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
 Vue.prototype.$store = store
+Vue.prototype.$echarts = echarts
 /*路由拦截*/
 router.beforeEach((to, from, next) => {
 	if(to.meta.requireAuth){//需要登录

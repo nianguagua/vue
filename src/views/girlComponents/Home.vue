@@ -145,7 +145,7 @@
 </template>
 
 <script>
-import Bus from '../../assets/js/eventBus'
+import Bus from '../../assets/js/common/eventBus'
 export default {
 	name: 'Home',
 	data () {
