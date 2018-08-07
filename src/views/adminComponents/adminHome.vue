@@ -45,16 +45,16 @@
           <i class="el-icon-menu header-icon" @click="logout"></i>
         </el-header>
         <el-main>
-          <div id="boyHomeAdmin" v-if="currentShow == 'boyFirst'">
+          <div id="boyHomeAdmin" v-show="currentShow == 'boyFirst'">
             boyFirstAdmin
           </div>
-          <div id="boySecondAdmin" v-if="currentShow == 'boySecond'">
+          <div id="boySecondAdmin" v-show="currentShow == 'boySecond'">
             boySecondAdmin
           </div>
-          <div id="boyThirdAdmin" v-if="currentShow == 'boyThird'">
+          <div id="boyThirdAdmin" v-show="currentShow == 'boyThird'">
             boyThirdAdmin
           </div>
-          <div id="girlHomeAdmin" v-if="currentShow == 'girlFirst'">
+          <div id="girlHomeAdmin" v-show="currentShow == 'girlFirst'">
             <el-row class="nav">
               <el-col :span="20" style="padding-left:10px;">
                 <el-date-picker v-model="girlFirstData.girlFirstStart" type="date" placeholder="开始时间"></el-date-picker>
@@ -99,24 +99,24 @@
                   
                 </div>
                 <div class="bottom" id="echart-line" :style="{width: '100%',height:'270px'}">
-                  bottom
+                  
                 </div>
               </el-col>
             </el-row>
           </div>
-          <div id="girlSecondAdmin" v-if="currentShow == 'girlSecond'">
+          <div id="girlSecondAdmin" v-show="currentShow == 'girlSecond'">
             girlSecondAdmin
           </div>
-          <div id="girlThirdAdmin" v-if="currentShow == 'girlThird'">
+          <div id="girlThirdAdmin" v-show="currentShow == 'girlThird'">
             girlThirdAdmin
           </div>
-          <div id="girlFourthAdmin" v-if="currentShow == 'girlFourth'">
+          <div id="girlFourthAdmin" v-show="currentShow == 'girlFourth'">
             girlFourthAdmin
           </div>
-          <div id="commonHomeAdmin" v-if="currentShow == 'commonHome'">
+          <div id="commonHomeAdmin" v-show="currentShow == 'commonHome'">
             commonHomeAdmin
           </div>
-          <div id="commonSecondAdmin" v-if="currentShow == 'commonSecond'">
+          <div id="commonSecondAdmin" v-show="currentShow == 'commonSecond'">
             commonSecondAdmin
           </div>
         </el-main>
@@ -140,29 +140,30 @@ export default {
           {pic:"../../../static/image/photo3.jpg",time:"2018-08-03",des:"photo3"},
           {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
           {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"}
+        ],
+        lineData:[
+          {
+            name:"2018-08-07",
+            value:["2018-08-07",669]
+          },
+          {
+            name:"2018-09-07",
+            value:["2018-09-07",444]
+          },
+          {
+            name:"2018-10-07",
+            value:["2018-10-07",347]
+          },
+          {
+            name:"2018-11-07",
+            value:["2018-11-07",800]
+          }
         ]
       }
     }
   },
   mounted:function(){
-    var data = [
-      {
-        name:"2018-08-07",
-        value:["2018-08-07",669]
-      },
-      {
-        name:"2018-09-07",
-        value:["2018-09-07",444]
-      },
-      {
-        name:"2018-10-07",
-        value:["2018-10-07",347]
-      },
-      {
-        name:"2018-11-07",
-        value:["2018-11-07",800]
-      }
-    ];
+    var data = this.girlFirstData.lineData;
     initChart.self = this;
     initChart.initPie("echart-pie");
     initChart.initLine("echart-line",data);
