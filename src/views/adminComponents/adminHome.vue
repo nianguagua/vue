@@ -2,7 +2,7 @@
  <el-container>
    <el-aside width="300px">
       <div class="title"></div>
-      <el-menu background-color="#404b56" text-color="#ccc" active-text-color="#00d9ed" default-active="boyFirst" :unique-opened=true>
+      <el-menu background-color="#404b56" text-color="#ccc" active-text-color="#00d9ed" default-active="girlFirst" :unique-opened=true>
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -45,28 +45,28 @@
           <i class="el-icon-menu header-icon" @click="logout"></i>
         </el-header>
         <el-main>
-          <div id="boyHomeAdmin" v-if="currentShow == 'boyFirst'">
+          <div id="boyHomeAdmin" v-show="currentShow == 'boyFirst'">
             boyFirstAdmin
           </div>
-          <div id="boySecondAdmin" v-if="currentShow == 'boySecond'">
+          <div id="boySecondAdmin" v-show="currentShow == 'boySecond'">
             boySecondAdmin
           </div>
-          <div id="boyThirdAdmin" v-if="currentShow == 'boyThird'">
+          <div id="boyThirdAdmin" v-show="currentShow == 'boyThird'">
             boyThirdAdmin
           </div>
-          <div id="girlHomeAdmin" v-if="currentShow == 'girlFirst'">
+          <div id="girlHomeAdmin" v-show="currentShow == 'girlFirst'">
             <el-row class="nav">
               <el-col :span="20" style="padding-left:10px;">
-                <el-date-picker v-model="girlFirstStart" type="date" placeholder="开始时间"></el-date-picker>
+                <el-date-picker v-model="girlFirstData.girlFirstStart" type="date" placeholder="开始时间"></el-date-picker>
                 <span>-</span>
-                <el-date-picker v-model="girlFirstEnd" type="date" placeholder="结束时间"></el-date-picker>
+                <el-date-picker v-model="girlFirstData.girlFirstEnd" type="date" placeholder="结束时间"></el-date-picker>
                 <el-button type="primary" icon="el-icon-search">搜索</el-button>
               </el-col>
               <el-col :span="4" style="text-align: right;"><i class="el-icon-upload"></i></el-col>
             </el-row>
-            <el-row class="box" style="padding-top:10px">
+            <el-row class="box" style="padding-top:10px" :gutter="2">
               <el-col :span="14">
-                <el-table :data="tableData" style="width: 100%">
+                <el-table :data="girlFirstData.tableData" style="width: 100%">
                   <el-table-column type="selection"></el-table-column>
                   <el-table-column label="图片概况" prop="pic">
                     <template slot-scope="scope">
@@ -95,28 +95,28 @@
                 </div>
               </el-col>
               <el-col :span="10">
-                <div class="top" id="echart-admin" :style="{width: '300px',height:'200px'}">
-                  top
+                <div class="top" id="echart-pie" :style="{width: '100%',height:'255px'}">
+                  
                 </div>
-                <div class="bottom">
-                  bottom
+                <div class="bottom" id="echart-line" :style="{width: '100%',height:'270px'}">
+                  
                 </div>
               </el-col>
             </el-row>
           </div>
-          <div id="girlSecondAdmin" v-if="currentShow == 'girlSecond'">
+          <div id="girlSecondAdmin" v-show="currentShow == 'girlSecond'">
             girlSecondAdmin
           </div>
-          <div id="girlThirdAdmin" v-if="currentShow == 'girlThird'">
+          <div id="girlThirdAdmin" v-show="currentShow == 'girlThird'">
             girlThirdAdmin
           </div>
-          <div id="girlFourthAdmin" v-if="currentShow == 'girlFourth'">
+          <div id="girlFourthAdmin" v-show="currentShow == 'girlFourth'">
             girlFourthAdmin
           </div>
-          <div id="commonHomeAdmin" v-if="currentShow == 'commonHome'">
+          <div id="commonHomeAdmin" v-show="currentShow == 'commonHome'">
             commonHomeAdmin
           </div>
-          <div id="commonSecondAdmin" v-if="currentShow == 'commonSecond'">
+          <div id="commonSecondAdmin" v-show="currentShow == 'commonSecond'">
             commonSecondAdmin
           </div>
         </el-main>
@@ -125,31 +125,53 @@
  </el-container>
 </template>
 <script>
-import {initFun} from '../../assets/js/admin/adminHome.js'
+import {initChart} from '../../assets/js/admin/adminHome.js'
 export default {
   name: 'AdminHome',
   data () {
     return {
-      girlFirstStart:"",
-      girlFirstEnd:"",
       currentShow:'girlFirst',
-      tableData:[
-        {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
-        {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"},
-        {pic:"../../../static/image/photo3.jpg",time:"2018-08-03",des:"photo3"},
-        {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
-        {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"}
-      ]
+      girlFirstData:{
+        girlFirstStart:"",
+        girlFirstEnd:"",
+        tableData:[
+          {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
+          {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"},
+          {pic:"../../../static/image/photo3.jpg",time:"2018-08-03",des:"photo3"},
+          {pic:"../../../static/image/photo1.jpg",time:"2018-08-03",des:"photo1"},
+          {pic:"../../../static/image/photo2.jpg",time:"2018-08-03",des:"photo2"}
+        ],
+        lineData:[
+          {
+            name:"2018-08-07",
+            value:["2018-08-07",669]
+          },
+          {
+            name:"2018-09-07",
+            value:["2018-09-07",444]
+          },
+          {
+            name:"2018-10-07",
+            value:["2018-10-07",347]
+          },
+          {
+            name:"2018-11-07",
+            value:["2018-11-07",800]
+          }
+        ]
+      }
     }
   },
   mounted:function(){
-    initFun.initChart("echart-admin");
+    var data = this.girlFirstData.lineData;
+    initChart.self = this;
+    initChart.initPie("echart-pie");
+    initChart.initLine("echart-line",data);
   },
   methods: {
     changeTab:function(val){
       var _self = this;
       _self.currentShow = val;
-      this.test();
     },
     logout:function(){
       this.$store.commit('logout','');
@@ -228,10 +250,10 @@ export default {
   }
   #girlHomeAdmin .top{
     height: 255px;
-    background: #333;
+    background: #fff;
   }
   #girlHomeAdmin .bottom{
     height: 270px;
-    background: #ccc;
+    background: #fff;
   }
 </style>
