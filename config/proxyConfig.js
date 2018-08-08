@@ -8,9 +8,12 @@ module.exports = {
         //     }
         //   }
        '/login': {
-	        target: 'http://192.168.1.101:1837',//接口域名
+	        target: 'http://192.168.1.103:1837',//接口域名
 	        changeOrigin: true//是否跨域
-	      }
-        //'/hello':"http://192.168.1.101:1837"
+	      },
+        '/upload':{
+            target: "http://192.168.1.103:1837",
+            changeOrigin: true
+        }
     }
 }
