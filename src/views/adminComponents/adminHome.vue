@@ -20,10 +20,10 @@
             <span slot="title">Girl</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="girlFirst" @click="changeTab('girlFirst')">girlFirst</el-menu-item>
-            <el-menu-item index="girlSecond" @click="changeTab('girlSecond')">girlSecond</el-menu-item>
-            <el-menu-item index="girlThird" @click="changeTab('girlThird')">girlThird</el-menu-item>
-            <el-menu-item index="girlFourth" @click="changeTab('girlFourth')">girlFourth</el-menu-item>
+            <el-menu-item index="girlFirst" @click="changeTab('girlFirst')">创作中心</el-menu-item>
+            <el-menu-item index="girlSecond" @click="changeTab('girlSecond')">学习</el-menu-item>
+            <el-menu-item index="girlThird" @click="changeTab('girlThird')">工具库</el-menu-item>
+            <el-menu-item index="girlFourth" @click="changeTab('girlFourth')">经历</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="3">
