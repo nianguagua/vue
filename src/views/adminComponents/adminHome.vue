@@ -62,7 +62,7 @@
                 <el-date-picker v-model="girlFirstData.girlFirstEnd" type="date" placeholder="结束时间"></el-date-picker>
                 <el-button type="primary" icon="el-icon-search">搜索</el-button>
               </el-col>
-              <el-col :span="4" style="text-align: right;"><i class="el-icon-upload"></i></el-col>
+              <el-col :span="4" style="text-align: right;"><i class="el-icon-upload" @click="upload"></i></el-col>
             </el-row>
             <el-row class="box" style="padding-top:10px" :gutter="2">
               <el-col :span="14">
@@ -103,6 +103,7 @@
                 </div>
               </el-col>
             </el-row>
+            <uploadPicture ref="pic"></uploadPicture>
           </div>
           <div id="girlSecondAdmin" v-show="currentShow == 'girlSecond'">
             girlSecondAdmin
@@ -125,6 +126,7 @@
  </el-container>
 </template>
 <script>
+import uploadPicture from '@/views/adminComponents/uploadPicture'
 import {initChart} from '../../assets/js/admin/adminHome.js'
 export default {
   name: 'AdminHome',
@@ -162,6 +164,9 @@ export default {
       }
     }
   },
+  components:{
+    uploadPicture:uploadPicture
+  },
   mounted:function(){
     var data = this.girlFirstData.lineData;
     initChart.self = this;
@@ -176,6 +181,9 @@ export default {
     logout:function(){
       this.$store.commit('logout','');
       this.$router.push({path: '/login'})
+    },
+    upload:function(){
+      this.$refs.pic.upload();
     }
   }
 }
