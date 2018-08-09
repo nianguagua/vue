@@ -3,7 +3,7 @@
   <el-row :gutter="10">
 		<el-col :span="14">
 			<div style="height:250px;border;">
-				<el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false"
+				<el-upload class="avatar-uploader" action="/upload" :show-file-list="false"
 				  :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
 				  <img v-if="imageUrl" :src="imageUrl" class="avatar">
 				  <i v-else class="el-icon-plus avatar-uploader-icon"></i>

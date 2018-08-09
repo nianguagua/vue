@@ -2,7 +2,7 @@
   <el-container>
     <el-header style="height:160px;"></el-header>
     <el-main>
-      <div style="background:#ccc;padding: 60px;">
+      <div style="background:#333;padding: 60px;">
         <div id="login">
           <el-form ref="form" label-width="80px">
             <el-form-item label="账号">
@@ -12,7 +12,7 @@
               <el-input v-model="password"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button @click="submit2">登录</el-button>
+              <el-button class="el-button--primary" @click="submit">登录</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -31,21 +31,37 @@ export default {
     }
   },
   methods: {
+    noticeTip:function(type,msg) {
+      this.$message({
+          message: msg,
+          type: type
+        });
+    },
     submit:function(){
     	var _self = this;
     	_self.$ajax({
     		method:"post",
-    		url:'/loginTest.php',
+    		url:'/login',
     		data:{
-    			name:_self.username,
-    			pass:_self.password
+    			username:_self.username,
+    			password:_self.password
     		}
     	})
     	.then(function(res){
-  			if(res){
-  				store.commit(login);
-  				_self.$router.go("/admin");
-  			}
+        console.log(res);
+  			if(res.data.code == 1){
+  				var cur = _self.username;
+          _self.$store.commit('login',cur);
+          // var msg = res.data.message;
+          // _self.noticeTip("success",msg);
+          let redirect = decodeURIComponent(_self.$route.query.redirect || '/');
+              _self.$router.push({
+                path: redirect
+            })
+  			}else{
+          var msg = res.data.message;
+          _self.noticeTip("error",msg);
+        }
   		})
   		.catch(function(err){
   			console.log("error"+err);
@@ -62,18 +78,6 @@ export default {
 	            path: redirect
 	          })
  			}
-      /*
- 			var params = new URLSearchParams();
- 			params.append("username","chengnian");
- 			params.append("password","123456");
-	      this.$ajax.post('/login',params)
-	      .then(function(res){
-	        console.log(res);
-	      })
-	      .catch(function(err){
-	        console.log(err);
-	      })
-        */
     }
   }
 }
@@ -84,8 +88,11 @@ export default {
     width: 400px;
     margin: 0 auto;
     padding: 10px;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    background: #ccc;
+  }
+  label.el-form-item__label{
+    color: #75efe2;
+  }
+  .el-button{
+    width: 100%;
   }
 </style>

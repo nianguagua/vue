@@ -9,10 +9,10 @@
 					<div class="box nav">
 						<template>
 							<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal" @select="changeTab">
-								<el-menu-item index="home">Home</el-menu-item>
-								<el-menu-item index="second">Second</el-menu-item>
-								<el-menu-item index="third">Third</el-menu-item>
-								<el-menu-item index="fourth">Fourth</el-menu-item>
+								<el-menu-item index="home">首页</el-menu-item>
+								<el-menu-item index="second">学习</el-menu-item>
+								<el-menu-item index="third">工具库</el-menu-item>
+								<el-menu-item index="fourth">经历</el-menu-item>
 							</el-menu>
 						</template>
 					</div>  

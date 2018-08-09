@@ -58,6 +58,7 @@ if (window.sessionStorage.getItem('code')) {
     store.commit('freshCode', window.sessionStorage.getItem('code'))
 }
 /*全局设置ajax请求头*/
+/*
 axios.defaults.headers = {
     "Content-Type":"application/x-www-form-urlencoded"
 }
@@ -68,7 +69,7 @@ axios.defaults.transformRequest = [function (data) {
     }
     return newData
 }]
-
+*/
 new Vue({
   el: '#app',
   router,
