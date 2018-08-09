@@ -106,15 +106,13 @@
             <uploadPicture ref="pic"></uploadPicture>
           </div>
           <div id="girlSecondAdmin" v-show="currentShow == 'girlSecond'">
-            <el-row>
-              <el-col :span="20">20</el-col>
-              <el-col :span="4">4</el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="14">14</el-col>
-              <el-col :span="10" style="background:#999">
-              10
-              </el-col>
+            <el-row style="padding-top:10px;position:relative;">
+              <i class="el-icon-edit-outline" style="position:absolute;z-index:100;right:15px;top:25px;"></i>
+              <el-tabs type="border-card">
+                <el-tab-pane v-for="tabdata in girlSecondData.labels"  :key="tabdata.name" v-bind:label="tabdata.name">   
+                  <girlSecondData></girlSecondData>
+                </el-tab-pane>
+              </el-tabs>
             </el-row>
           </div>
           <div id="girlThirdAdmin" v-show="currentShow == 'girlThird'">
@@ -136,6 +134,7 @@
 </template>
 <script>
 import uploadPicture from '@/views/adminComponents/uploadPicture'
+import girlSecondData from '@/views/adminComponents/girlSecondData'
 import {initChart} from '../../assets/js/admin/adminHome.js'
 export default {
   name: 'AdminHome',
@@ -170,11 +169,21 @@ export default {
             value:["2018-11-07",800]
           }
         ]
+      },
+      girlSecondData:{
+        labels:[
+          {name:"VUE",data:""},
+          {name:"HTML5",data:""},
+          {name:"ES6",data:""},
+          {name:"LESS",data:""},
+          {name:"CSS3",data:""}
+        ]
       }
     }
   },
   components:{
-    uploadPicture:uploadPicture
+    uploadPicture:uploadPicture,
+    girlSecondData:girlSecondData
   },
   mounted:function(){
     var data = this.girlFirstData.lineData;
