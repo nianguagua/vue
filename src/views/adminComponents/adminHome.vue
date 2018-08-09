@@ -2,7 +2,7 @@
  <el-container>
    <el-aside width="300px">
       <div class="title"></div>
-      <el-menu background-color="#404b56" text-color="#ccc" active-text-color="#00d9ed" default-active="girlFirst" :unique-opened=true>
+      <el-menu background-color="#404b56" text-color="#ccc" active-text-color="#00d9ed" default-active="girlSecond" :unique-opened=true>
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -95,10 +95,10 @@
                 </div>
               </el-col>
               <el-col :span="10">
-                <div class="top" id="echart-pie" :style="{width: '100%',height:'255px'}">
+                <div class="top" id="echart-pie" :style="{width:'100%',height:'255px'}">
                   
                 </div>
-                <div class="bottom" id="echart-line" :style="{width: '100%',height:'270px'}">
+                <div class="bottom" id="echart-line" :style="{width:'100%',height:'270px'}">
                   
                 </div>
               </el-col>
@@ -106,7 +106,16 @@
             <uploadPicture ref="pic"></uploadPicture>
           </div>
           <div id="girlSecondAdmin" v-show="currentShow == 'girlSecond'">
-            girlSecondAdmin
+            <el-row>
+              <el-col :span="20">20</el-col>
+              <el-col :span="4">4</el-col>
+            </el-row>
+            <el-row>
+              <el-col :span="14">14</el-col>
+              <el-col :span="10" style="background:#999">
+              10
+              </el-col>
+            </el-row>
           </div>
           <div id="girlThirdAdmin" v-show="currentShow == 'girlThird'">
             girlThirdAdmin
@@ -132,7 +141,7 @@ export default {
   name: 'AdminHome',
   data () {
     return {
-      currentShow:'girlFirst',
+      currentShow:'girlSecond',
       girlFirstData:{
         girlFirstStart:"",
         girlFirstEnd:"",
@@ -177,6 +186,10 @@ export default {
     changeTab:function(val){
       var _self = this;
       _self.currentShow = val;
+      if(val=="girlFirst"){
+        _self.setEchartWidth("echart-pie");
+        _self.setEchartWidth("echart-line");
+      }
     },
     logout:function(){
       this.$store.commit('logout','');
@@ -184,6 +197,12 @@ export default {
     },
     upload:function(){
       this.$refs.pic.upload();
+    },
+    setEchartWidth:function(id){
+      var mychart = initChart.getTagObj(id);
+      setTimeout(function(){
+        mychart.resize();
+      },50)
     }
   }
 }
