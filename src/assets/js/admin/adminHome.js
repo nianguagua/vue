@@ -51,6 +51,7 @@ var initChart = {
 		    ]
 		}
 		mychart.setOption(option);
+		window.onresize = mychart.resize;
 	},
 	initLine:function(id,data){
 		var mychart = this.getTagObj(id);
