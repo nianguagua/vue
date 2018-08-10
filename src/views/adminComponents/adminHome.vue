@@ -62,7 +62,7 @@
                 <el-date-picker v-model="girlFirstData.girlFirstEnd" type="date" placeholder="结束时间"></el-date-picker>
                 <el-button type="primary" icon="el-icon-search">搜索</el-button>
               </el-col>
-              <el-col :span="4" style="text-align: right;"><i class="el-icon-upload" @click="upload"></i></el-col>
+              <el-col :span="4" style="text-align: right;"><i class="el-icon-upload" @click="openDialog('pic')"></i></el-col>
             </el-row>
             <el-row class="box" style="padding-top:10px" :gutter="2">
               <el-col :span="14">
@@ -107,13 +107,14 @@
           </div>
           <div id="girlSecondAdmin" v-show="currentShow == 'girlSecond'">
             <el-row style="padding-top:10px;position:relative;">
-              <i class="el-icon-edit-outline" style="position:absolute;z-index:100;right:15px;top:25px;"></i>
+              <i class="el-icon-edit-outline" style="position:absolute;z-index:100;right:15px;top:25px;" @click="openDialog('artical')"></i>
               <el-tabs type="border-card">
                 <el-tab-pane v-for="tabdata in girlSecondData.labels"  :key="tabdata.name" v-bind:label="tabdata.name">   
-                  <girlSecondData></girlSecondData>
+                  <girlSecondData v-bind:secondInfo="tabdata.data"></girlSecondData>
                 </el-tab-pane>
               </el-tabs>
             </el-row>
+            <articalComponent ref="artical"></articalComponent>
           </div>
           <div id="girlThirdAdmin" v-show="currentShow == 'girlThird'">
             girlThirdAdmin
@@ -134,6 +135,7 @@
 </template>
 <script>
 import uploadPicture from '@/views/adminComponents/uploadPicture'
+import articalComponent from '@/views/adminComponents/articalComponent'
 import girlSecondData from '@/views/adminComponents/girlSecondData'
 import {initChart} from '../../assets/js/admin/adminHome.js'
 export default {
@@ -171,19 +173,146 @@ export default {
         ]
       },
       girlSecondData:{
+        /**
+        * name书签名 data书签下的文章
+        * id:文章ID
+        * tag:标签（标签名，标签类型）
+        * title:文章名 edittime:文章编辑时间 msg:文章内容
+        **/
         labels:[
-          {name:"VUE",data:""},
-          {name:"HTML5",data:""},
-          {name:"ES6",data:""},
-          {name:"LESS",data:""},
-          {name:"CSS3",data:""}
+          {
+            name:"VUE",
+            data:[
+              {
+                id:1,
+                tag:{
+                  name:"Vue.js",
+                  type:"primary"
+                },
+                title:"vue 路由",
+                edittime:"2018-08-10 14:17:30",
+                msg:"Vue.js列表内容"
+              },
+              {
+                id:2,
+                tag:{
+                  name:"Element UI",
+                  type:"success"
+                },
+                title:"scoped属性",
+                edittime:"2018-08-10 14:17:30",
+                msg:"Element UI列表内容"
+              }
+            ]
+          },
+          {
+            name:"HTML5",
+            data:[
+              {
+                id:1,
+                tag:{
+                  name:"localStorge",
+                  type:"warning"
+                },
+                title:"localStorge的基础使用",
+                edittime:"2018-08-10 14:17:30",
+                msg:"HTML5列表内容"
+              },
+              {
+                id:2,
+                tag:{
+                  name:"sessionStorge",
+                  type:"danger"
+                },
+                title:"sessionStorge的基础使用",
+                edittime:"2018-08-10 14:17:30",
+                msg:"HTML5I列表内容"
+              },
+              {
+                id:3,
+                tag:{
+                  name:"canvas",
+                  type:"primary"
+                },
+                title:"canvas的基础使用",
+                edittime:"2018-08-10 14:17:30",
+                msg:"HTML5I列表内容"
+              }
+            ]
+          },
+          {
+            name:"ES6",
+            data:[
+              {
+                id:1,
+                tag:{
+                  name:"ES6",
+                  type:"primary"
+                },
+                title:"ES6基础",
+                edittime:"2018-08-10 14:17:30",
+                msg:"ES6基础"
+              }
+            ]
+          },
+          {
+            name:"LESS",
+            data:[
+              {
+                id:1,
+                tag:{
+                  name:"LESS",
+                  type:"info"
+                },
+                title:"LESS基础",
+                edittime:"2018-08-10 14:17:30",
+                msg:"LESS基础列表内容"
+              },
+              {
+                id:2,
+                tag:{
+                  name:"LESS进阶",
+                  type:"success"
+                },
+                title:"LESS进阶",
+                edittime:"2018-08-10 14:17:30",
+                msg:"LESS进阶列表内容"
+              }
+            ]
+          },
+          {
+            name:"CSS3",
+            data:[
+              {
+                id:1,
+                tag:{
+                  name:"CSS3动画",
+                  type:"primary"
+                },
+                title:"rotate",
+                edittime:"2018-08-10 14:17:30",
+                msg:"rotate列表内容"
+              },
+              {
+                id:2,
+                tag:{
+                  name:"兼容性",
+                  type:"warning"
+                },
+                title:"IE兼容性",
+                edittime:"2018-08-10 14:17:30",
+                msg:"IE兼容性列表内容"
+              }
+            ]
+          }
         ]
       }
     }
   },
   components:{
     uploadPicture:uploadPicture,
-    girlSecondData:girlSecondData
+    girlSecondData:girlSecondData,
+    articalComponent:articalComponent
   },
   mounted:function(){
     var data = this.girlFirstData.lineData;
@@ -204,8 +333,11 @@ export default {
       this.$store.commit('logout','');
       this.$router.push({path: '/login'})
     },
-    upload:function(){
-      this.$refs.pic.upload();
+    openDialog:function(type){
+      switch(type){
+        case "pic": this.$refs.pic.upload(); break;
+        case "artical": this.$refs.artical.edit(); break;
+      }
     },
     setEchartWidth:function(id){
       var mychart = initChart.getTagObj(id);

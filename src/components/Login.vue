@@ -12,7 +12,7 @@
               <el-input v-model="password"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button class="el-button--primary" @click="submit">登录</el-button>
+              <el-button class="el-button--primary" @click="submit2">登录</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -54,7 +54,7 @@ export default {
           _self.$store.commit('login',cur);
           // var msg = res.data.message;
           // _self.noticeTip("success",msg);
-          let redirect = decodeURIComponent(_self.$route.query.redirect || '/');
+          let redirect = decodeURIComponent(_self.$route.query.redirect || '/admin');
               _self.$router.push({
                 path: redirect
             })
@@ -73,7 +73,7 @@ export default {
  				var cur = this.username;
  				this.$store.commit('login',cur);
  				console.log(sessionStorage.user);
-	    	let redirect = decodeURIComponent(this.$route.query.redirect || '/');
+	    	let redirect = decodeURIComponent(this.$route.query.redirect || '/admin');
 	          this.$router.push({
 	            path: redirect
 	          })
