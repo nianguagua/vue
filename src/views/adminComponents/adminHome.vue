@@ -200,7 +200,7 @@ export default {
                   type:"success"
                 },
                 title:"scoped属性",
-                edittime:"2018-08-10 14:17:30",
+                edittime:"2018-08-11 14:17:30",
                 msg:"Element UI列表内容"
               }
             ]
@@ -215,7 +215,7 @@ export default {
                   type:"warning"
                 },
                 title:"localStorge的基础使用",
-                edittime:"2018-08-10 14:17:30",
+                edittime:"2018-08-12 14:17:30",
                 msg:"HTML5列表内容"
               },
               {
@@ -225,7 +225,7 @@ export default {
                   type:"danger"
                 },
                 title:"sessionStorge的基础使用",
-                edittime:"2018-08-10 14:17:30",
+                edittime:"2018-08-13 14:17:30",
                 msg:"HTML5I列表内容"
               },
               {
@@ -235,7 +235,7 @@ export default {
                   type:"primary"
                 },
                 title:"canvas的基础使用",
-                edittime:"2018-08-10 14:17:30",
+                edittime:"2018-08-14 14:17:30",
                 msg:"HTML5I列表内容"
               }
             ]
@@ -336,7 +336,7 @@ export default {
     openDialog:function(type){
       switch(type){
         case "pic": this.$refs.pic.upload(); break;
-        case "artical": this.$refs.artical.edit(); break;
+        case "artical": this.$refs.artical.open(); break;
       }
     },
     setEchartWidth:function(id){

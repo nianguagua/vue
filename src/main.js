@@ -12,14 +12,20 @@ import router from './router'
 import "babel-polyfill"
 import https from './https/http.js'
 import store from './store/store.js'
+// import Bus from './assets/js/common/eventBus.js'
 import './assets/js/common/homeJs.js'
 import App from './App'
 import './assets/icon/iconfont.css'
 import echarts from 'echarts'
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 Vue.use(Vuex)
+Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
 Vue.prototype.$store = store
