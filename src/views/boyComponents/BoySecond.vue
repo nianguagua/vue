@@ -81,6 +81,7 @@
   </el-container>
 </template>
 <script>
+import boyHeadNavCenter from "../../components/boyHeadNavCenter"
 export default {
   name: 'BoySecond',
   data () {
@@ -88,6 +89,9 @@ export default {
       activeIndex: 'second',
       currentShow: "app"
     }
+  },
+  components:{
+    boyHeadNavCenter:boyHeadNavCenter
   },
   methods:{
     changeTab:function(type){

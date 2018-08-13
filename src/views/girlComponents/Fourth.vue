@@ -50,12 +50,16 @@
   </el-container>
 </template>
 <script>
+import headnavCenter from "../../components/headnavCenter"
 export default {
   name: 'Fourth',
   data () {
     return {
       activeIndex: 'fourth'
     }
+  },
+  components:{
+    headnavCenter:headnavCenter
   },
   mounted:function(){
     this.$refs['popover1'].doShow();

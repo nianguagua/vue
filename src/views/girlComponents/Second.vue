@@ -83,13 +83,154 @@
   </el-container>
 </template>
 <script>
+import headnavCenter from "../../components/headnavCenter"
 export default {
   name: 'Second',
   data () {
     return {
       activeIndex: 'second',
-      currentShow: 'vueFirst'
+      currentShow: 'vueFirst',
+      allData:[
+          {
+            name:"VUE",
+            data:[
+              {
+                id:1,
+                type:"VUE",
+                tag:{
+                  name:"Vue.js",
+                  type:"primary"
+                },
+                title:"vue 路由",
+                edittime:"2018-08-10 14:17:30",
+                msg:"Vue.js列表内容"
+              },
+              {
+                id:2,
+                type:"VUE",
+                tag:{
+                  name:"Element UI",
+                  type:"success"
+                },
+                title:"scoped属性",
+                edittime:"2018-08-11 14:17:30",
+                msg:"Element UI列表内容"
+              }
+            ]
+          },
+          {
+            name:"HTML5",
+            data:[
+              {
+                id:1,
+                type:"HTML5",
+                tag:{
+                  name:"localStorge",
+                  type:"warning"
+                },
+                title:"localStorge的基础使用",
+                edittime:"2018-08-12 14:17:30",
+                msg:"HTML5列表内容"
+              },
+              {
+                id:2,
+                type:"HTML5",
+                tag:{
+                  name:"sessionStorge",
+                  type:"danger"
+                },
+                title:"sessionStorge的基础使用",
+                edittime:"2018-08-13 14:17:30",
+                msg:"HTML5I列表内容"
+              },
+              {
+                id:3,
+                type:"HTML5",
+                tag:{
+                  name:"canvas",
+                  type:"primary"
+                },
+                title:"canvas的基础使用",
+                edittime:"2018-08-14 14:17:30",
+                msg:"HTML5I列表内容"
+              }
+            ]
+          },
+          {
+            name:"ES6",
+            data:[
+              {
+                id:1,
+                type:"ES6",
+                tag:{
+                  name:"ES6",
+                  type:"primary"
+                },
+                title:"ES6基础",
+                edittime:"2018-08-10 14:17:30",
+                msg:"ES6基础"
+              }
+            ]
+          },
+          {
+            name:"LESS",
+            data:[
+              {
+                id:1,
+                type:"LESS",
+                tag:{
+                  name:"LESS",
+                  type:"info"
+                },
+                title:"LESS基础",
+                edittime:"2018-08-10 14:17:30",
+                msg:"LESS基础列表内容"
+              },
+              {
+                id:2,
+                type:"LESS",
+                tag:{
+                  name:"LESS进阶",
+                  type:"success"
+                },
+                title:"LESS进阶",
+                edittime:"2018-08-10 14:17:30",
+                msg:"LESS进阶列表内容"
+              }
+            ]
+          },
+          {
+            name:"CSS3",
+            data:[
+              {
+                id:1,
+                type:"CSS3",
+                tag:{
+                  name:"CSS3动画",
+                  type:"primary"
+                },
+                title:"rotate",
+                edittime:"2018-08-10 14:17:30",
+                msg:"rotate列表内容"
+              },
+              {
+                id:2,
+                type:"CSS3",
+                tag:{
+                  name:"兼容性",
+                  type:"warning"
+                },
+                title:"IE兼容性",
+                edittime:"2018-08-10 14:17:30",
+                msg:"IE兼容性列表内容"
+              }
+            ]
+          }
+        ]
     }
+  },
+  components:{
+    headnavCenter:headnavCenter
   },
   methods:{
     changeTab:function(type){

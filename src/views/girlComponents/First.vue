@@ -175,6 +175,7 @@
   </el-container>
 </template>
 <script>
+import headnavCenter from "../../components/headnavCenter"
 export default {
   name: 'First',
   data () {
@@ -183,6 +184,9 @@ export default {
       currentShow: "photo",
       value1: 3
     }
+  },
+  components:{
+    headnavCenter:headnavCenter
   },
   methods:{
     changeTab:function(type){

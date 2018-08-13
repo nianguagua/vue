@@ -4,56 +4,6 @@ import Bus from './eventBus'
 Vue.component('headnavLeft',{
   template:'<div class="box title"></div>'
 })
-Vue.component('headnavCenter',{
-  props:['activeIndex'],
-  methods:{
-  	checkCode:function(){
-  		if(this.$store.state.code === ''){
-  			//this.$store.dialog = true;
-  			//alert("需要邀请码");
-  			Bus.$emit("transCode",true);
-  		}else{
-  			this.$router.push({path:'/fourth'});
-  		}
-  		//this.$store.state.code = "123";
-  	}
-  },
-  template:'<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal">'
-            +'<el-menu-item index="home">'
-              +'<router-link to="/">首页</router-link>'
-            +'</el-menu-item>'
-            +'<el-menu-item index="first">'
-              +'<router-link to="/first">创作中心</router-link>'
-            +'</el-menu-item>'
-            +'<el-menu-item index="second">'
-              +'<router-link to="/second">学习</router-link>'
-            +'</el-menu-item>'
-            +'<el-menu-item index="third">'
-              +'<router-link to="/third">工具库</router-link>'
-            +'</el-menu-item>'
-            +'<el-menu-item index="fourth" v-on:click="checkCode">'
-              +'<router-link to="#">经历</router-link>'
-            +'</el-menu-item>'
-          +'</el-menu>'
-})
-Vue.component('boyHeadNavCenter',{
-  props:['activeIndex'],
-  template:'<el-menu :default-active="activeIndex" class="top-nav" mode="horizontal">'
-                +'<el-menu-item index="home">'
-                  +'<router-link to="/boy">Home</router-link>'
-                +'</el-menu-item>'
-                +'<el-menu-item index="first">'
-                  +'<router-link to="/boyFirst">A</router-link>'
-                +'</el-menu-item>'
-                +'<el-menu-item index="second">'
-                  +'<router-link to="/boySecond">B</router-link>'
-                +'</el-menu-item>'
-                +'<el-menu-item index="third">'
-                   +'<router-link to="/boyThird">C</router-link>'
-                +'</el-menu-item>'
-              +'</el-menu>'
-})
-
 Vue.component('headnavGirlRight',{
   template:'<div class="box change-sex"><router-link to="/boy"><img class="boy" src="../../../static/image/boy.png" alt="" /></router-link><router-link to="/"><img class="girl active" src="../../../static/image/girl.png" alt="" /></router-link></div>'
 })

@@ -51,6 +51,7 @@
   </el-container>
 </template>
 <script>
+import headnavCenter from "../../components/headnavCenter"
 export default {
   name: 'Third',
   data () {
@@ -58,6 +59,9 @@ export default {
       activeIndex: 'third',
       currentShow: "app"
     }
+  },
+  components:{
+    headnavCenter:headnavCenter
   },
   methods:{
     changeTab:function(type){
