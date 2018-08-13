@@ -185,6 +185,7 @@ export default {
             data:[
               {
                 id:1,
+                type:"VUE",
                 tag:{
                   name:"Vue.js",
                   type:"primary"
@@ -195,6 +196,7 @@ export default {
               },
               {
                 id:2,
+                type:"VUE",
                 tag:{
                   name:"Element UI",
                   type:"success"
@@ -210,6 +212,7 @@ export default {
             data:[
               {
                 id:1,
+                type:"HTML5",
                 tag:{
                   name:"localStorge",
                   type:"warning"
@@ -220,6 +223,7 @@ export default {
               },
               {
                 id:2,
+                type:"HTML5",
                 tag:{
                   name:"sessionStorge",
                   type:"danger"
@@ -230,6 +234,7 @@ export default {
               },
               {
                 id:3,
+                type:"HTML5",
                 tag:{
                   name:"canvas",
                   type:"primary"
@@ -245,6 +250,7 @@ export default {
             data:[
               {
                 id:1,
+                type:"ES6",
                 tag:{
                   name:"ES6",
                   type:"primary"
@@ -260,6 +266,7 @@ export default {
             data:[
               {
                 id:1,
+                type:"LESS",
                 tag:{
                   name:"LESS",
                   type:"info"
@@ -270,6 +277,7 @@ export default {
               },
               {
                 id:2,
+                type:"LESS",
                 tag:{
                   name:"LESS进阶",
                   type:"success"
@@ -285,6 +293,7 @@ export default {
             data:[
               {
                 id:1,
+                type:"CSS3",
                 tag:{
                   name:"CSS3动画",
                   type:"primary"
@@ -295,6 +304,7 @@ export default {
               },
               {
                 id:2,
+                type:"CSS3",
                 tag:{
                   name:"兼容性",
                   type:"warning"

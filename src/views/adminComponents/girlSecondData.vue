@@ -9,7 +9,7 @@
           <el-button style="float: right; padding: 3px 0" type="text">
             <i class="el-icon-delete"></i>
             <span>/</span>
-            <i class="el-icon-edit" @click="eidtArtical(o.id)"></i>
+            <i class="el-icon-edit" @click="eidtArtical(o)"></i>
           </el-button>
         </div>
       </div>
@@ -32,8 +32,8 @@ export default {
   mounted:function(){
   },
   methods: {
-  	eidtArtical:function(id){
-      Bus.$emit("transEdit",id);
+  	eidtArtical:function(data){
+      Bus.$emit("transEdit",data);
     }
   }
 }
