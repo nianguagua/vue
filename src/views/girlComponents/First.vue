@@ -17,7 +17,7 @@
         </el-col>
       </el-row> 
     </el-header> 
-    <el-main  style="background: #eee;">
+    <el-main style="background: #eee;">
       <el-container>
         <el-aside width="300px">
           <el-menu default-active="photo">

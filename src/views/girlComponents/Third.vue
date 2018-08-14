@@ -17,13 +17,13 @@
         </el-col>
       </el-row> 
     </el-header> 
-    <el-container>
+    <el-container style="padding-top:10px;background: #eee;">
       <el-aside width="300px">
         <div class="tab-name">
             
         </div>
         <div class="menu">
-          <el-menu default-active="app">
+          <el-menu default-active="app" style="border:none;">
             <el-menu-item index="app" @click="changeTab('app')">
                 <i class="el-icon-document"></i>
                 <span slot="title">APP</span>
@@ -37,7 +37,21 @@
       </el-aside>
       <el-main>
         <div class="app" v-if="currentShow == 'app'">
-          app
+          <el-card shadow="never">
+            <span style="margin-right:10px">名称:<font style="color:#409EFF">猫宁</font></span>
+            <span>描述:this is a description...</span>
+            <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
+          </el-card>
+          <el-card shadow="never">
+            <span style="margin-right:10px">名称:<font style="color:#409EFF">猫宁</font></span>
+            <span>描述:this is a description...</span>
+            <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
+          </el-card>
+          <el-card shadow="never">
+            <span style="margin-right:10px">名称:<font style="color:#409EFF">猫宁</font></span>
+            <span>描述:this is a description...</span>
+            <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
+          </el-card>
         </div>
         <div class="demo" v-if="currentShow == 'demo'">
           demo
@@ -72,9 +86,10 @@ export default {
 }
 </script>
 <style scoped>
-  .comic-box{
-    height: 250px;
-    background: #ccc;
-    margin-bottom: 10px;
+  .el-card{
+    margin-bottom: 5px;
+  }
+  .el-aside{
+    margin-right: 2px;
   }
 </style>

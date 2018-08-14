@@ -17,62 +17,28 @@
         </el-col>
       </el-row> 
     </el-header> 
-    <el-container>
+    <el-container style="background: #eee;">
       <el-aside width="300px">
-        <div class="tab-name">
-          
-        </div>
-        <el-menu default-active="vueFirst" :unique-opened=true>
-            <el-submenu index="1">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>Vue</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="vueFirst" @click="changeTab('vueFirst')">vueFirst</el-menu-item>
-                <el-menu-item index="vueSecond" @click="changeTab('vueSecond')">vueSecond</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            <el-submenu index="2">
-              <template slot="title">
-                <i class="el-icon-menu"></i>
-                <span slot="title">Element UI</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="elementFirst" @click="changeTab('elementFirst')">elementFirst</el-menu-item>
-                <el-menu-item index="elementSecond" @click="changeTab('elementSecond')">elementSecond</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            <el-submenu index="3">
-              <template slot="title">
-                <i class="el-icon-setting"></i>
-                <span slot="title">HTML5</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="htmlFirst" @click="changeTab('htmlFirst')">htmlFirst</el-menu-item>
-                <el-menu-item index="htmlSecond" @click="changeTab('htmlSecond')">htmlSecond</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+        <el-menu :default-active="currentShow" :unique-opened=true>
+          <div class="tab-name">
+            <el-input placeholder="请输入内容" class="input-with-select">
+              <el-button slot="append" icon="el-icon-search"></el-button>
+            </el-input>
+          </div>
+          <el-submenu v-for="da,index in allData" :key="da.name" :index="index+1+''">
+            <template slot="title">
+              <i v-bind:class="da.icon"></i>
+              <span>{{da.name}}</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item v-for="it in da.data" :key="it.tagName" :index="it.tagName" @click="changeTab(it.tagName)">{{it.tagName}}</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
         </el-menu>
       </el-aside>
       <el-main>
-        <div class="vueFirst" v-if="currentShow == 'vueFirst'">
-          vueFirst
-        </div>
-        <div class="vueSecond"  v-if="currentShow == 'vueSecond'">
-          vueSecond
-        </div>
-        <div class="elementFirst" v-if="currentShow == 'elementFirst'">
-          elementFirst
-        </div>
-        <div class="elementSecond"  v-if="currentShow == 'elementSecond'">
-          elementSecond
-        </div>
-        <div class="htmlFirst" v-if="currentShow == 'htmlFirst'">
-          htmlFirst
-        </div>
-        <div class="htmlSecond"  v-if="currentShow == 'htmlSecond'">
-          htmlSecond
+        <div v-for="it in allItemData" v-if="currentShow == it.tagName">
+          <secondDataComponent :activeName="1" :itemInfo="it.data"></secondDataComponent>
         </div>
       </el-main>
     </el-container>
@@ -84,153 +50,230 @@
 </template>
 <script>
 import headnavCenter from "../../components/headnavCenter"
+import secondDataComponent from "@/views/girlComponents/secondDataComponent"
 export default {
   name: 'Second',
   data () {
     return {
       activeIndex: 'second',
-      currentShow: 'vueFirst',
+      currentShow: 'Vue.js',
       allData:[
           {
             name:"VUE",
+            icon:"el-icon-location",
             data:[
               {
                 id:1,
                 type:"VUE",
-                tag:{
-                  name:"Vue.js",
-                  type:"primary"
-                },
-                title:"vue 路由",
-                edittime:"2018-08-10 14:17:30",
-                msg:"Vue.js列表内容"
+                tagName:"Vue.js"
               },
               {
                 id:2,
                 type:"VUE",
-                tag:{
-                  name:"Element UI",
-                  type:"success"
-                },
-                title:"scoped属性",
-                edittime:"2018-08-11 14:17:30",
-                msg:"Element UI列表内容"
+                tagName:"Element UI"
               }
             ]
           },
           {
             name:"HTML5",
+            icon:"el-icon-menu",
             data:[
               {
                 id:1,
                 type:"HTML5",
-                tag:{
-                  name:"localStorge",
-                  type:"warning"
-                },
-                title:"localStorge的基础使用",
-                edittime:"2018-08-12 14:17:30",
-                msg:"HTML5列表内容"
+                tagName:"localStorge"
               },
               {
                 id:2,
                 type:"HTML5",
-                tag:{
-                  name:"sessionStorge",
-                  type:"danger"
-                },
-                title:"sessionStorge的基础使用",
-                edittime:"2018-08-13 14:17:30",
-                msg:"HTML5I列表内容"
+                tagName:"sessionStorge"
               },
               {
                 id:3,
                 type:"HTML5",
-                tag:{
-                  name:"canvas",
-                  type:"primary"
-                },
-                title:"canvas的基础使用",
-                edittime:"2018-08-14 14:17:30",
-                msg:"HTML5I列表内容"
+                tagName:"canvas"
               }
             ]
           },
           {
             name:"ES6",
+            icon:"el-icon-setting",
             data:[
               {
                 id:1,
                 type:"ES6",
-                tag:{
-                  name:"ES6",
-                  type:"primary"
-                },
-                title:"ES6基础",
-                edittime:"2018-08-10 14:17:30",
-                msg:"ES6基础"
+                tagName:"ES6"
               }
             ]
           },
           {
             name:"LESS",
+            icon:"el-icon-document",
             data:[
               {
                 id:1,
                 type:"LESS",
-                tag:{
-                  name:"LESS",
-                  type:"info"
-                },
-                title:"LESS基础",
-                edittime:"2018-08-10 14:17:30",
-                msg:"LESS基础列表内容"
+                tagName:"LESS"
               },
               {
                 id:2,
                 type:"LESS",
-                tag:{
-                  name:"LESS进阶",
-                  type:"success"
-                },
-                title:"LESS进阶",
-                edittime:"2018-08-10 14:17:30",
-                msg:"LESS进阶列表内容"
+                tagName:"LESS进阶"
               }
             ]
           },
           {
             name:"CSS3",
+            icon:"el-icon-phone-outline",
             data:[
               {
                 id:1,
                 type:"CSS3",
-                tag:{
-                  name:"CSS3动画",
-                  type:"primary"
-                },
-                title:"rotate",
-                edittime:"2018-08-10 14:17:30",
-                msg:"rotate列表内容"
+                tagName:"CSS3动画"
               },
               {
                 id:2,
                 type:"CSS3",
-                tag:{
-                  name:"兼容性",
-                  type:"warning"
-                },
-                title:"IE兼容性",
-                edittime:"2018-08-10 14:17:30",
-                msg:"IE兼容性列表内容"
+                tagName:"兼容性"
               }
             ]
           }
-        ]
+        ],
+      allItemData:[
+        {
+          tagName:"Vue.js",
+          data:[
+            {
+              id:1,
+              title:"vue 路由",
+              time:"2018-08-10 14:17:30",
+              content:"Vue.js列表内容,我们提供了通用的项目模板，你可以直接使用。对于 Laravel 用户，我们也准备了相应的模板，同样可以直接下载使用。如果不希望使用我们提供的模板，请继续阅读。"
+            },
+            {
+              id:2,
+              title:"vue 组件",
+              time:"2018-08-10 14:17:30",
+              content:"组件列表内容"
+            },
+            {
+              id:3,
+              title:"vue 表单",
+              time:"2018-08-10 14:17:30",
+              content:"表单列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"Element UI",
+          data:[
+            {
+              id:1,
+              title:"scoped属性",
+              time:"2018-08-10 14:17:30",
+              content:"Element UI列表内容"
+            },
+            {
+              id:2,
+              title:"dialog",
+              time:"2018-08-10 14:17:30",
+              content:"dialog列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"localStorge",
+          data:[
+            {
+              id:1,
+              title:"localStorge的基础使用 ",
+              time:"2018-08-10 14:17:30",
+              content:"HTML5列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"sessionStorge",
+          data:[
+            {
+              id:1,
+              title:"sessionStorge ",
+              time:"2018-08-10 14:17:30",
+              content:"HTML5I列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"canvas",
+          data:[
+            {
+              id:1,
+              title:"canvas的基础使用",
+              time:"2018-08-10 14:17:30",
+              content:"HTML5I列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"ES6",
+          data:[
+            {
+              id:1,
+              title:"ES6基础",
+              time:"2018-08-10 14:17:30",
+              content:"ES6基础"
+            }
+          ]
+        },
+        {
+          tagName:"LESS",
+          data:[
+            {
+              id:1,
+              title:"LESS基础",
+              time:"2018-08-10 14:17:30",
+              content:"LESS基础列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"LESS进阶",
+          data:[
+            {
+              id:1,
+              title:"LESS进阶",
+              time:"2018-08-10 14:17:30",
+              content:"LESS进阶列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"CSS3动画",
+          data:[
+            {
+              id:1,
+              title:"rotate",
+              time:"2018-08-10 14:17:30",
+              content:"rotate列表内容"
+            }
+          ]
+        },
+        {
+          tagName:"兼容性",
+          data:[
+            {
+              id:1,
+              title:"IE兼容性",
+              time:"2018-08-10 14:17:30",
+              content:"IE兼容性列表内容"
+            }
+          ]
+        }
+      ]
     }
   },
   components:{
-    headnavCenter:headnavCenter
+    headnavCenter:headnavCenter,
+    secondDataComponent:secondDataComponent
   },
   methods:{
     changeTab:function(type){
@@ -241,8 +284,13 @@ export default {
 }
 </script>
 <style scoped>
-  .left .tab-name{
-    height: 100px;
-    background: #777;
+  .tab-name{
+    margin: 5px 0;
+  }
+  .el-main{
+    /*margin-left:10px;*/
+  }
+  .el-aside{
+    margin-right: 2px;
   }
 </style>
