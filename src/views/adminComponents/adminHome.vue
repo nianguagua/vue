@@ -2,7 +2,7 @@
  <el-container>
    <el-aside width="300px">
       <div class="title"></div>
-      <el-menu background-color="#404b56" text-color="#ccc" active-text-color="#00d9ed" default-active="girlSecond" :unique-opened=true>
+      <el-menu background-color="#404b56" text-color="#ccc" active-text-color="#00d9ed" default-active="girlThird" :unique-opened=true>
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -117,7 +117,7 @@
             <articalComponent ref="artical"></articalComponent>
           </div>
           <div id="girlThirdAdmin" v-show="currentShow == 'girlThird'">
-            girlThirdAdmin
+            <girlThirdComponent :thirdInfo="123"></girlThirdComponent>
           </div>
           <div id="girlFourthAdmin" v-show="currentShow == 'girlFourth'">
             girlFourthAdmin
@@ -137,12 +137,13 @@
 import uploadPicture from '@/views/adminComponents/uploadPicture'
 import articalComponent from '@/views/adminComponents/articalComponent'
 import girlSecondData from '@/views/adminComponents/girlSecondData'
+import girlThirdComponent from '@/views/adminComponents/girlThirdComponent'
 import {initChart} from '../../assets/js/admin/adminHome.js'
 export default {
   name: 'AdminHome',
   data () {
     return {
-      currentShow:'girlSecond',
+      currentShow:'girlThird',
       girlFirstData:{
         girlFirstStart:"",
         girlFirstEnd:"",
@@ -322,7 +323,8 @@ export default {
   components:{
     uploadPicture:uploadPicture,
     girlSecondData:girlSecondData,
-    articalComponent:articalComponent
+    articalComponent:articalComponent,
+    girlThirdComponent:girlThirdComponent
   },
   mounted:function(){
     var data = this.girlFirstData.lineData;

@@ -37,24 +37,23 @@
       </el-aside>
       <el-main>
         <div class="app" v-if="currentShow == 'app'">
-          <el-card shadow="never">
-            <span style="margin-right:10px">名称:<font style="color:#409EFF">猫宁</font></span>
-            <span>描述:this is a description...</span>
-            <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
-          </el-card>
-          <el-card shadow="never">
-            <span style="margin-right:10px">名称:<font style="color:#409EFF">猫宁</font></span>
-            <span>描述:this is a description...</span>
-            <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
-          </el-card>
-          <el-card shadow="never">
-            <span style="margin-right:10px">名称:<font style="color:#409EFF">猫宁</font></span>
-            <span>描述:this is a description...</span>
-            <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
+          <el-card v-for="app in apps" :key="app.id" shadow="never">
+            <span style="margin-right:10px">
+            名称:<font style="color:#409EFF">{{app.name}}</font>
+            </span>
+            <span>描述:{{app.des}}</span>
+            <el-button style="float: right; padding: 3px 0" type="text">
+              <a :href="app.download">下载</a>
+            </el-button>
           </el-card>
         </div>
         <div class="demo" v-if="currentShow == 'demo'">
-          demo
+          <el-card v-for="de in demos" :key="de.id" shadow="never">
+            <span>{{de.des}}</span>
+            <el-button style="float: right; padding: 3px 0" type="text">
+              <a :href="de.url">详情></a>
+            </el-button>
+          </el-card>
         </div>
       </el-main>
     </el-container>
@@ -71,7 +70,28 @@ export default {
   data () {
     return {
       activeIndex: 'third',
-      currentShow: "app"
+      currentShow: "app",
+      apps:[
+        {
+          id:1,
+          name:"猫宁",
+          des:"this is a description...",
+          download:"http://www.baidu.com"
+        },
+        {
+          id:2,
+          name:"猫宁2",
+          des:"this is a description...",
+          download:"http://www.baidu.com"
+        }
+      ],
+      demos:[
+        {
+          id:1,
+          des:"冬日的傍晚，纷飞的雪花...",
+          url:"http://www.baidu.com"
+        }
+      ]
     }
   },
   components:{
@@ -86,6 +106,9 @@ export default {
 }
 </script>
 <style scoped>
+  a{
+    color: #409EFF;
+  }
   .el-card{
     margin-bottom: 5px;
   }
